@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pollo <pollo@student.42.fr>                +#+  +:+       +#+         #
+#    By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/12 22:19:18 by pollo             #+#    #+#              #
-#    Updated: 2023/05/16 10:21:55 by pollo            ###   ########.fr        #
+#    Updated: 2023/05/24 10:31:10 by clcarrer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,5 +25,15 @@ $(NAME): $(OBJ)
 .cpp.o:
 	$(CC) $(CFLAGS) -c $< -o $@
 
+debug:	CFLAGS += -g
+debug:	re
+
 clean:
-	rm -f $(OBJ) $(NAME)
+	@rm -rf $(OBJ)
+
+fclean:	clean
+	@rm -f $(NAME)
+
+re:		fclean all
+
+.PHONY: all debug clean fclean re

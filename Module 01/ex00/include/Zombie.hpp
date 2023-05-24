@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   agenda.hpp                                         :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/12 22:28:23 by pollo             #+#    #+#             */
-/*   Updated: 2023/05/24 11:00:03 by clcarrer         ###   ########.fr       */
+/*   Created: 2023/05/17 12:13:41 by clcarrer          #+#    #+#             */
+/*   Updated: 2023/05/24 13:59:07 by clcarrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AGENDA_HPP
-# define AGENDA_HPP
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
 #include <iostream>
 #include <string>
-#include <iomanip>
-#include <unistd.h>
 
-class Contact {
-	public:
-		std::string 	name;
-		std::string 	last;
-		std::string 	nick;
-		int long long	num;
-		std::string 	secret;
-};
-
-class PhoneBook {
+class	Zombie {
 	private:
-		Contact contacts[8];
-		int numContact;
+		std::string name;
 	public:
-		PhoneBook() : numContact(0) {}
-		void addContact(void);
-		void searchContact(void);
+		Zombie(std::string name) {
+			this->name = name;
+		}
+		~Zombie() {
+			std::cout << "Zombie " << name << " was destroyed" << std::endl;
+		}
+
+		void announce( void );
 };
+
+Zombie*	newZombie( std::string name );
+void	randomChump( std::string name );
 
 #endif

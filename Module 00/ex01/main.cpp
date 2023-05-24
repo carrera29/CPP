@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 22:24:13 by pollo             #+#    #+#             */
-/*   Updated: 2023/05/16 10:09:56 by pollo            ###   ########.fr       */
+/*   Updated: 2023/05/24 11:56:21 by clcarrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ std::string	ft_parrot(const std::string& question){
 	while (true) {
 		std::cout << question << std::endl;
 		std::getline(std::cin, input);
+		if (input == "EXIT" || input == "exit")
+			exit (0);
 		if (!input.empty())
 			return (input);
 	}
@@ -72,22 +74,30 @@ void	PhoneBook::searchContact(void){
 
 void	PhoneBook::addContact(void){
 	int i = 0;
+	std::string	num;
+	bool valid = false;
 
 	if (numContact < 8)
 		i = numContact;
 	else
-		numContact = i;
+		numContact = 0;
 	contacts[i].name = ft_parrot("\nPlease, enter the name:");
 	contacts[i].last = ft_parrot("Enter the last name:");
 	contacts[i].nick = ft_parrot("Enter the nickname:");
-	while (true){
-		try {
-			contacts[i].num = std::stoi(ft_parrot("Enter the phone number:"));
-			break ;
-		} catch(const std::invalid_argument& e) {
-			std::cout << "Invalid phone number format. Please enter a valid number." << std::endl;
+	while (!valid){
+		valid = true;
+		if ((num = ft_parrot("Enter the phone number:")).length() > 18) {
+			std::cout << "Phone number is too long." << std::endl, valid = false;
+			continue;
+		}
+		for (size_t j = 0; j < num.length() && valid; j++){
+			if (!std::isdigit(num[j])){
+				std::cout << "Invalid phone number format." << std::endl;
+				valid = false;
+			}
 		}
 	}
+	contacts[i].num = std::stoll(num);
 	contacts[i].secret = ft_parrot("Finally, enter their darkest secret..;) :");
 	numContact++;
 }

@@ -5,31 +5,39 @@
 #                                                     +:+ +:+         +:+      #
 #    By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/12 17:49:46 by pollo             #+#    #+#              #
-#    Updated: 2023/05/24 10:30:38 by clcarrer         ###   ########.fr        #
+#    Created: 2023/05/17 12:13:33 by clcarrer          #+#    #+#              #
+#    Updated: 2023/05/24 15:21:38 by clcarrer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		= g++
-CFLAGS	= -std=c++98 -Wall -Wextra -Werror
+NAME	=	zombie
+SRC		=	main.cpp \
+			Zombie.cpp \
+			randomChump.cpp \
+			Zombie.cpp
+OBJ       = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
-NAME	= megaphone
-SRC		= megaphone.cpp
-OBJ		= $(SRC:.cpp=.o)
+SRC_DIR	= ./src
+OBJ_DIR	= ./obj
+INC_DIR = ./include
+
+CC		=	g++
+CFLAGS	=	-std=c++98 -Wall -Wextra -Werror -I $(INC_DIR)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-.cpp.o:
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 debug:	CFLAGS += -g
 debug:	re
 
 clean:
-	@rm -rf $(OBJ)
+	@rm -rf $(OBJ_DIR)
 
 fclean:	clean
 	@rm -f $(NAME)
