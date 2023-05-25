@@ -5,20 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 15:09:45 by clcarrer          #+#    #+#             */
-/*   Updated: 2023/05/25 14:22:44 by clcarrer         ###   ########.fr       */
+/*   Created: 2023/05/25 12:25:18 by clcarrer          #+#    #+#             */
+/*   Updated: 2023/05/25 13:29:06 by clcarrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
+#include <string.h>
+#include <iostream>
 
 int main(void){
-	Zombie	*HordaZ;
+	std::string		s = "HI THIS IS BRAIN";
+	std::string*	stringPTR = &s;
+	std::string&	stringREF = s;
 
-	HordaZ = Zombie::zombieHorde(10, "UltraSur");
-	for (int i = 0; i < 10; i++){
-		HordaZ[i].announce();
-	}
-	delete[] HordaZ;
-	return 0;
+	std::cout << "Memory address of string:	" << &s << std::endl;
+	std::cout << "Memory address of stringPTR:	" << stringPTR << std::endl;
+	std::cout << "Memory address of stringREF:	" << &stringREF << std::endl;
+
+	std::cout << "Content of string:	" << s << std::endl;
+	std::cout << "Content of stringPTR:	" << *stringPTR << std::endl;
+	std::cout << "Content of stringREF:	" << stringREF << std::endl;
+    
+    return 0;
 }
