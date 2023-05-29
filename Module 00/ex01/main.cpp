@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 22:24:13 by pollo             #+#    #+#             */
-/*   Updated: 2023/05/24 11:56:21 by clcarrer         ###   ########.fr       */
+/*   Updated: 2023/05/29 14:48:46 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ std::string truncateString(const std::string& s) {
 }
 
 void	ContactList(const Contact *contacts){
-	std::cout << std::setw(10) << std::setfill(' ') << "Index" << " | "
-				<< std::setw(10) << std::setfill(' ') << "Name" << " | "
+	std::cout 	<< std::right << std::setw(10) << std::setfill(' ') << "Index" << " | "
+				<< std::right << std::setw(10) << std::setfill(' ') << "Name" << " | "
 				<< std::right << std::setw(10) << std::setfill(' ') << "Last Name" << " | "
 				<< std::right << std::setw(10) << std::setfill(' ') << "Nickname" << " | "
 				<< std::endl;
@@ -70,6 +70,8 @@ void	PhoneBook::searchContact(void){
 			else
 				std::cout << "The index number does not match any existence contact" << std::endl;
 		}
+	else
+		std::getline(std::cin, input);
 }
 
 void	PhoneBook::addContact(void){

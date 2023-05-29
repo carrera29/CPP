@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 13:37:13 by clcarrer          #+#    #+#             */
-/*   Updated: 2023/05/26 12:33:30 by pollo            ###   ########.fr       */
+/*   Created: 2023/05/25 13:30:51 by clcarrer          #+#    #+#             */
+/*   Updated: 2023/05/29 13:54:06 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
-#include "Weapon.hpp"
+#include "Harl.hpp"
 
-HumanB::HumanB(std::string newName) : name(newName) {
-	weapon = NULL;
-}
-
-void	HumanB::attack() {
-	std::cout << name << " attacks with their " << weapon->getType() << std::endl;
-}
-
-void HumanB::setWeapon(Weapon &newWeapon) {
-	weapon = &newWeapon;
+int main(int argc, char **argv) {
+	if (argc == 2) {
+		Harl obj;
+		obj.complain(argv[1]);
+	}
+	else
+		std::cout << "Wrong number of arguments\n";
+	return 0;
 }

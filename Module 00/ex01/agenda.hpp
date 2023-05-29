@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   agenda.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 22:28:23 by pollo             #+#    #+#             */
-/*   Updated: 2023/05/24 11:00:03 by clcarrer         ###   ########.fr       */
+/*   Updated: 2023/05/29 14:41:06 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class PhoneBook {
 		Contact contacts[8];
 		int numContact;
 	public:
-		PhoneBook() : numContact(0) {}
+		PhoneBook() {}
 		void addContact(void);
 		void searchContact(void);
 };

@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 13:37:13 by clcarrer          #+#    #+#             */
-/*   Updated: 2023/05/26 12:33:30 by pollo            ###   ########.fr       */
+/*   Created: 2023/05/25 13:34:42 by clcarrer          #+#    #+#             */
+/*   Updated: 2023/05/29 13:01:50 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
-#include "Weapon.hpp"
+#ifndef HARL_HPP
+# define HARL_HPP
 
-HumanB::HumanB(std::string newName) : name(newName) {
-	weapon = NULL;
-}
+# include <iostream>
+# include <fstream>
+# include <string>
+# include <map>
 
-void	HumanB::attack() {
-	std::cout << name << " attacks with their " << weapon->getType() << std::endl;
-}
+class	Harl {
+	private:
+		void debug( void );
+		void info( void );
+		void warning( void );
+		void error( void );
+	public:
+		Harl() {}
+		~Harl() {}
+		void complain( std::string level );
+};
 
-void HumanB::setWeapon(Weapon &newWeapon) {
-	weapon = &newWeapon;
-}
+#endif

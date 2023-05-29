@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   wReplace.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/17 12:13:41 by clcarrer          #+#    #+#             */
-/*   Updated: 2023/05/26 08:11:16 by pollo            ###   ########.fr       */
+/*   Created: 2023/05/25 13:34:42 by clcarrer          #+#    #+#             */
+/*   Updated: 2023/05/29 10:06:31 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef WREPLACE_HPP
+# define WREPLACE_HPP
 
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <fstream>
+# include <string>
 
-class	Zombie {
+class	File {
 	private:
-		std::string name;
+		std::string		file_name;
+		std::fstream	file;
 	public:
-		Zombie(std::string name) : name(name) {}
-		~Zombie() {
-			std::cout << "Zombie " << name << " was destroyed" << std::endl;
-		}
-		void announce( void );
+		File(const std::string name, size_t i);
+		~File();
+		std::fstream& getFile();
 };
 
-Zombie*	newZombie( std::string name );
-void	randomChump( std::string name );
+void		wReplace(File *in_file, File *out_file, const std::string& s1, const std::string& s2);
+std::string	getFileExtension(std::string *name);
 
 #endif
