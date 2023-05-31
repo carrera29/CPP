@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 12:25:18 by clcarrer          #+#    #+#             */
-/*   Updated: 2023/05/26 13:00:22 by pollo            ###   ########.fr       */
+/*   Updated: 2023/05/29 15:05:08 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int main(void){
 	std::cout << "Content of stringPTR:	" << *stringPTR << std::endl;
 	std::cout << "Content of stringREF:	" << stringREF << std::endl << std::endl;
 
-	*stringPTR = "FUCK U, I CHANGED THE LINE";
+	*stringPTR = "I CHANGED THE LINE";
 	std::cout << "Content of string:	" << s << std::endl;
 	std::cout << "Content of stringPTR:	" << *stringPTR << std::endl;
 	std::cout << "Content of stringREF:	" << stringREF << std::endl << std::endl;
 
-	stringREF = "AND NOW ME JAJAJ";
+	stringREF = "AND NOW ME";
 	std::cout << "Content of string:	" << s << std::endl;
 	std::cout << "Content of stringPTR:	" << *stringPTR << std::endl;
 	std::cout << "Content of stringREF:	" << stringREF << std::endl << std::endl;

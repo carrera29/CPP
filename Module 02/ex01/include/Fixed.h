@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Fixed.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/17 12:51:49 by clcarrer          #+#    #+#             */
-/*   Updated: 2023/05/29 14:53:33 by pollo            ###   ########.fr       */
+/*   Created: 2023/05/17 12:13:41 by clcarrer          #+#    #+#             */
+/*   Updated: 2023/05/30 15:52:58 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef FIXED_H
+# define FIXED_H
 
-Zombie::Zombie(std::string name) : name(name) {}
+#include <cmath>
+# include <iostream>
+# include <string>
 
-Zombie::~Zombie() {
-	std::cout << "Zombie " << name << " was destroyed" << std::endl;
-}
+class Fixed
+{
+	private:
+		int					value;
+		static const int	NUM_BITS_FRAC = 8;
+	public:
+		Fixed();
+		Fixed(const int number);
+		~Fixed();
+		Fixed(const Fixed& obj);
+		Fixed& operator=(const Fixed& other);
+		int getRawBits( void ) const;
+		void setRawBits ( int const raw );
+};
 
-void Zombie::announce( void ) {
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
+#endif

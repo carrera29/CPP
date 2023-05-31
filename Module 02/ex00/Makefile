@@ -6,15 +6,13 @@
 #    By: pollo <pollo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/17 12:13:33 by clcarrer          #+#    #+#              #
-#    Updated: 2023/05/29 15:00:25 by pollo            ###   ########.fr        #
+#    Updated: 2023/05/30 10:43:57 by pollo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	zombie
+NAME	=	fized
 SRC		=	main.cpp \
-			newZombie.cpp \
-			randomChump.cpp \
-			Zombie.cpp
+			Fixed.cpp
 OBJ       = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 SRC_DIR	= ./src
