@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+         #
+#    By: pollo <pollo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/12 17:49:46 by pollo             #+#    #+#              #
-#    Updated: 2023/05/24 10:30:38 by clcarrer         ###   ########.fr        #
+#    Updated: 2023/06/18 17:50:51 by pollo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		= g++
+CC		= c++
 CFLAGS	= -std=c++98 -Wall -Wextra -Werror
 
 NAME	= megaphone
@@ -23,7 +23,7 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 .cpp.o:
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 debug:	CFLAGS += -g
 debug:	re
