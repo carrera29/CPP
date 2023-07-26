@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 22:24:13 by pollo             #+#    #+#             */
-/*   Updated: 2023/05/29 14:48:46 by pollo            ###   ########.fr       */
+/*   Updated: 2023/07/26 10:34:13 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,24 @@ void	PhoneBook::searchContact(void){
 	ContactList(contacts);
 	if (!contacts[0].name.empty() && !contacts[0].last.empty())
 		while (true){
-			int i = std::stoi(ft_parrot("Please, insert the index number:"));
-			if (i >= 0 && i < 8 && !contacts[i].name.empty() && !contacts[i].last.empty()){
-				std::cout << std::endl 
-				<< std::left << std::setw(20) << "Name: " << contacts[i].name << std::endl
-				<< std::left << std::setw(20) << "Last name: " << contacts[i].last << std::endl
-				<< std::left << std::setw(20) << "Nickname: " << contacts[i].nick << std::endl
-				<< std::left << std::setw(20) << "Phone num.: " << contacts[i].num << std::endl
-				<< std::left << std::setw(20) << "The darkest secr..: " << contacts[i].secret << std::endl
-				<< std::endl; std::getline(std::cin, input);
-				break ;
+			try {
+				int i = std::stoi(ft_parrot("Please, insert the index number:"));
+				if (i >= 0 && i < 8 && !contacts[i].name.empty() && !contacts[i].last.empty()){
+					std::cout << std::endl 
+					<< std::left << std::setw(20) << "Name: " << contacts[i].name << std::endl
+					<< std::left << std::setw(20) << "Last name: " << contacts[i].last << std::endl
+					<< std::left << std::setw(20) << "Nickname: " << contacts[i].nick << std::endl
+					<< std::left << std::setw(20) << "Phone num.: " << contacts[i].num << std::endl
+					<< std::left << std::setw(20) << "The darkest secr..: " << contacts[i].secret << std::endl
+					<< std::endl; std::getline(std::cin, input);
+					break ;
+				}
+				else
+					std::cout << "The index number does not match any existence contact" << std::endl;
 			}
-			else
-				std::cout << "The index number does not match any existence contact" << std::endl;
+			catch (std::invalid_argument& e) {
+                std::cout << "Invalid input. Please enter a valid index number." << std::endl;
+			}
 		}
 	else
 		std::getline(std::cin, input);
