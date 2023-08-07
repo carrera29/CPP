@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 13:24:35 by pollo             #+#    #+#             */
-/*   Updated: 2023/05/29 09:27:20 by pollo            ###   ########.fr       */
+/*   Updated: 2023/08/07 16:49:34 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 File::File(const std::string name, size_t i) : file_name(name) {
 	if (!i)
-		file.open(name);
+		file.open(name, std::fstream::in);
 	else
 		file.open(name, std::fstream::out);
 	if (!(file.is_open())) {

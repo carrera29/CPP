@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:30:51 by clcarrer          #+#    #+#             */
-/*   Updated: 2023/05/26 12:18:22 by pollo            ###   ########.fr       */
+/*   Updated: 2023/08/07 14:34:02 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int main(void) {
 		club.setType("some other type of club");
 		jim.attack();
 	}
-	system("leaks game");
+	//system("leaks game");
 	return 0;
 }
