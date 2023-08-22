@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.h                                            :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/17 12:13:41 by clcarrer          #+#    #+#             */
-/*   Updated: 2023/08/21 16:52:58 by pollo            ###   ########.fr       */
+/*   Created: 2023/08/22 15:50:03 by pollo             #+#    #+#             */
+/*   Updated: 2023/08/22 18:49:29 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_H
-# define FIXED_H
+#ifndef POINT_HPP
+# define POINT_HPP
 
-#include <cmath>
+# include <cmath>
 # include <iostream>
 # include <string>
+# include "Fixed.hpp"
 
-class Fixed
-{
+class Point {
 	private:
-		int					fixedValue;
-		static const int	NUM_BITS_FRAC = 8;
+		Fixed const x;
+		Fixed const y; 
 	public:
-		Fixed();
-		Fixed(const int value);
-		Fixed(const float value);
-		~Fixed();
-		Fixed(const Fixed& obj);
-		Fixed& operator=(const Fixed& other);
-		int getRawBits( void ) const;
-		void setRawBits ( int const raw );
-		float toFloat( void ) const;
-		int toInt( void ) const;
+		Point();
+		~Point();
+		Point (const Point& other);
+		Point(const float x, const float y);
+		Point& operator=(const Point& other);
+		float getXvalue() const;
+		float getYvalue() const;
+		bool bsp( Point const a, Point const b, Point const c, Point const point);
+		static Fixed triangleArea(const Point& a, const Point& b, const Point& c);
 };
-
-std::ostream& operator<<(std::ostream& out, const Fixed& floatValue);
 
 #endif

@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/17 12:13:38 by clcarrer          #+#    #+#             */
-/*   Updated: 2023/08/21 11:48:42 by pollo            ###   ########.fr       */
+/*   Created: 2023/08/22 15:53:44 by pollo             #+#    #+#             */
+/*   Updated: 2023/08/22 18:49:23 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include "Point.hpp"
 
-int main() {
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
+Point::Point() : x(0), y(0) {}
 
-	b.setRawBits(1000000);
-	b.setRawBits(10);
-	c = b;	
-	std::cout << "a -> " << a.getRawBits() << std::endl;
-	std::cout << "b -> " << b.getRawBits() << std::endl;
-	std::cout << "c -> " << c.getRawBits() << std::endl;
-	return 0;
+Point::~Point() {}
+
+Point::Point (const Point& other) : x(other.x), y(other.y) {}
+
+Point::Point(const float pointX, const float pointY) : x(pointX), y(pointY) {}
+
+Point& Point::operator=(const Point& other) {
+	return *this;
+}
+
+float Point::getXvalue() const {
+	return this->x.toFloat();
+}
+
+float Point::getYvalue() const {
+	return this->y.toFloat();
 }
