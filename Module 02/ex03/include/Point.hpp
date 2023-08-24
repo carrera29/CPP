@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 15:50:03 by pollo             #+#    #+#             */
-/*   Updated: 2023/08/22 18:49:29 by pollo            ###   ########.fr       */
+/*   Updated: 2023/08/23 09:58:44 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ class Point {
 		Point (const Point& other);
 		Point(const float x, const float y);
 		Point& operator=(const Point& other);
-		float getXvalue() const;
-		float getYvalue() const;
-		bool bsp( Point const a, Point const b, Point const c, Point const point);
+		static bool bsp( Point const a, Point const b, Point const c, Point const point);
 		static Fixed triangleArea(const Point& a, const Point& b, const Point& c);
 };
 

@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:13:41 by clcarrer          #+#    #+#             */
-/*   Updated: 2023/08/22 18:32:35 by pollo            ###   ########.fr       */
+/*   Updated: 2023/08/23 09:09:46 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ class Fixed
 		bool operator==(const Fixed& other) const;
 		bool operator!=(const Fixed& other) const;
 
-		float operator+(const Fixed& other);
-		float operator-(const Fixed& other);
-		float operator*(const Fixed& other);
-		float operator/(const Fixed& other);
+		Fixed operator+(const Fixed& other);
+		Fixed operator-(const Fixed& other);
+		Fixed operator*(const Fixed& other);
+		Fixed operator/(const Fixed& other);
 
 		Fixed&	operator++();
 		Fixed	operator++(int);
@@ -56,14 +56,6 @@ class Fixed
 
 		static Fixed min(const Fixed& first, const Fixed& second);
 		static Fixed max(const Fixed& first, const Fixed& second);
-
-		Fixed	Fixed::subtract(const Fixed& other) const;
-		// función miembro estática:
-		// 	- No tiene acceso a los miembros no estáticos (atributos o funciones) de la clase que no sean estáticos.
-		// 	- Puede ser llamada utilizando el nombre de la clase:: sin crear una instancia de la clase.
-		// 	- No tiene "this".
-		// 	- No está asociada con objetos.
-		// 	- Compartida entre todas las instancias.
 };
 
 std::ostream& operator<<(std::ostream& out, const Fixed& floatValue);

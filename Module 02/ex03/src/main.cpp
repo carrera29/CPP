@@ -6,45 +6,61 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:13:38 by clcarrer          #+#    #+#             */
-/*   Updated: 2023/08/22 15:53:54 by pollo            ###   ########.fr       */
+/*   Updated: 2023/08/24 17:23:05 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include "Point.hpp"
 
 int main(void) {
-	Fixed a(10);
-	Fixed b(10.5f);
-	Fixed c(a);
 
-	if (a < b)
-		std::cout << b << " > " << a << std::endl;
-	if (a == c)
-		std::cout << a << " == " << c << std::endl;
-	if (b >= c)
-		std::cout << b << " >= " << c << std::endl;
-	if (b != c)
-		std::cout << b << " != " << c << std::endl;
+	// Triangle points
+	Point A(2.0f, 6.0f); Point B(7.0f, 2.0f); Point C(9.0f, 8.0f);
 
-	std::cout << a << " + " << b << " = " << a + b << std::endl;
-	std::cout << a << " - " << b << " = " << a - b << std::endl;
-	std::cout << c << " * " << b << " = " << c * b << std::endl;
-	std::cout << a << " / " << c << " = " << a / c << std::endl;
+	// Testing points
+	Point Inside1(5.0f, 5.0f); Point Inside2(8.0f, 7.0f);
+	Point OnEdge1(2.0f, 6.0f); Point OnEdge2(8.0f, 5.0f);
+	Point Outside1(9.0f, 2.0f); Point Outside2(2.0f, 7.0f);
 
-	Fixed d;
-	std::cout << "d is " << d << std::endl;
-	std::cout << "++d is " << ++d << std::endl;
-	std::cout << "d++ is " << d++ << std::endl;
-	std::cout << "d is " << d << std::endl;
-	std::cout << "--d is " << --d << std::endl;
-	std::cout << "d-- is " << d-- << std::endl;
-	std::cout << "d is " << d << std::endl;
 
-	Fixed const e( Fixed( 5.05f ) * Fixed( 2 ) );
-	std::cout << "e is " << e << std::endl;
+	std::cout << "\nTesting Inside points\n"
+		<< "-------------------------------------------" << std::endl;
+	if (Point::bsp(A, B, C, Inside1))
+		std::cout << "Point is INSIDE the triangle" << std::endl;
+	else
+		std::cout << "Point is NOT inside the triangle" << std::endl;
 
-	std::cout << "btw " << a << " & " << e << " min is " << Fixed::min( a, e ) << std::endl;
-	std::cout << "btw " << a << " & " << e << " max is " << Fixed::max( a, e ) << std::endl;
+	if (Point::bsp(A, B, C, Inside2))
+		std::cout << "Point is INSIDE the triangle" << std::endl;
+	else
+		std::cout << "Point is NOT inside the triangle" << std::endl;
+
+
+	std::cout << "\nTesting edge points\n"
+		<< "-------------------------------------------" << std::endl;
+	if (Point::bsp(A, B, C, OnEdge1))
+		std::cout << "Point is INSIDE the triangle" << std::endl;
+	else
+		std::cout << "Point is NOT inside the triangle" << std::endl;
+
+	if (Point::bsp(A, B, C, OnEdge2))
+		std::cout << "Point is INSIDE the triangle" << std::endl;
+	else
+		std::cout << "Point is NOT inside the triangle" << std::endl;
+
+
+	std::cout << "\nTesting outside points\n"
+		<< "-------------------------------------------" << std::endl;
+	if (Point::bsp(A, B, C, Outside1))
+		std::cout << "Point is INSIDE the triangle" << std::endl;
+	else
+		std::cout << "Point is NOT inside the triangle" << std::endl;
+
+	if (Point::bsp(A, B, C, Outside2))
+		std::cout << "Point is INSIDE the triangle" << std::endl;
+	else
+		std::cout << "Point is NOT inside the triangle" << std::endl;
 
 	return (0);
 }

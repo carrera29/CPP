@@ -6,22 +6,20 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:58:10 by pollo             #+#    #+#             */
-/*   Updated: 2023/08/22 15:33:14 by pollo            ###   ########.fr       */
+/*   Updated: 2023/08/24 16:59:17 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.h"
 
-Fixed::Fixed() {
-	this->fixedValue = 0;
-}
+Fixed::Fixed() : fixedValue(0) {}
 
 Fixed::Fixed(const int value) {
 	this->fixedValue = value << NUM_BITS_FRAC;
 }
 
 Fixed::Fixed(const float value) {
-	this->fixedValue = roundf(value * (1 << NUM_BITS_FRAC));
+	this->fixedValue = (int)roundf(value * (1 << NUM_BITS_FRAC));
 }
 
 Fixed::~Fixed() {}
@@ -38,17 +36,12 @@ void	Fixed::setRawBits ( int const raw ) {
 	this->fixedValue = raw;
 }
 
-float	Fixed::toFloat( void ) const {
-	int intergerPart = this->fixedValue >> NUM_BITS_FRAC;
-	int fractionalPart = this->fixedValue & ((1 << NUM_BITS_FRAC) - 1);
-	float floatFractional = (float)fractionalPart / (1 << NUM_BITS_FRAC);
-
-	return (float)intergerPart + floatFractional;
+float	Fixed::toFloat( void ) const { 
+	return (float)this->fixedValue / (float)(1 << NUM_BITS_FRAC);
 }
 
 int	Fixed::toInt( void ) const {
-	float floatValue = toFloat();
-	return (int)roundf(floatValue);
+	return (int)roundf(this->toFloat());
 }
 
 Fixed&	Fixed::operator=(const Fixed& other) {
@@ -85,20 +78,28 @@ bool	Fixed::operator!=(const Fixed& other) const {
 
 // arithmetic operators
 
-float	Fixed::operator+(const Fixed& other) {
-	return this->toFloat() + other.toFloat();
+Fixed	Fixed::operator+(const Fixed& other) {
+	Fixed Result;
+	Result.setRawBits(this->fixedValue + other.fixedValue);
+	return Result;
 }
 
-float	Fixed::operator-(const Fixed& other) {
-	return this->toFloat() - other.toFloat();
+Fixed	Fixed::operator-(const Fixed& other) {
+	Fixed Result;
+	Result.setRawBits(this->fixedValue - other.fixedValue);
+	return Result;
 }
 
-float	Fixed::operator*(const Fixed& other) {
-	return this->toFloat() * other.toFloat();
+Fixed	Fixed::operator*(const Fixed& other) {
+	Fixed Result;
+	Result.setRawBits((this->fixedValue * other.fixedValue) >> NUM_BITS_FRAC);
+	return Result;
 }
 
-float	Fixed::operator/(const Fixed& other) {
-	return this->toFloat() / other.toFloat();
+Fixed	Fixed::operator/(const Fixed& other) {
+	Fixed Result;
+	Result.setRawBits((this->fixedValue << NUM_BITS_FRAC) / other.fixedValue);
+	return Result;
 }
 
 Fixed&	Fixed::operator++() {
@@ -124,14 +125,14 @@ Fixed	Fixed::operator--(int) {
 }
 
 Fixed	Fixed::min(const Fixed& first, const Fixed& second) {
-	return (first.toFloat() < second.toFloat()) ? first : second;
+	return (first.fixedValue < second.fixedValue) ? first : second;
 }
 
 Fixed	Fixed::max(const Fixed& first, const Fixed& second) {
-	return (first.toFloat() > second.toFloat()) ? first : second;
+	return (first.fixedValue > second.fixedValue) ? first : second;
 }
 
-std::ostream& operator<<(std::ostream& out, const Fixed& fixedValue) {
-	out << fixedValue.toFloat();
+std::ostream& operator<<(std::ostream& out, const Fixed& other) {
+	out << other.toFloat();;
 	return out;
 }

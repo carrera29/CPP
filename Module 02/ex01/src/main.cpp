@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:13:38 by clcarrer          #+#    #+#             */
-/*   Updated: 2023/08/21 19:00:23 by pollo            ###   ########.fr       */
+/*   Updated: 2023/08/24 16:56:57 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main(void) {
 	Fixed a;
 	Fixed const b( 10 ); 
-	Fixed const c( 42.75f ); 
+	Fixed const c( 42.42f ); 
 	Fixed const d( b );
 
 	a = Fixed( 1234.4321f );
