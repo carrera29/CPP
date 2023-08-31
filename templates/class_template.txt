@@ -1,0 +1,10 @@
+class ClassName {
+    private:
+    public:
+        ClassName() {
+        // Constructor implementation
+        }
+        ~ClassName() {}
+        ClassName(ClassName &other) : ClassName(other) {}
+        // Other methods and members...
+};

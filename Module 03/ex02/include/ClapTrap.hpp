@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:51:46 by pollo             #+#    #+#             */
-/*   Updated: 2023/05/12 14:23:20 by pollo            ###   ########.fr       */
+/*   Updated: 2023/08/30 17:04:25 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,21 @@
 
 class ClapTrap
 {
-	private:
-		// Constructor
-		const char* Name;
-		unsigned int Hit = 10;
-		unsigned int Energy = 10;
-		unsigned int Attack = 0;
-	
+	protected:
+		const char*		Name;
+		unsigned int	Hit;
+		unsigned int	Energy;
+		unsigned int	Attack;
 	public:
-		// Métodos
 		ClapTrap(const char* name);
+		~ClapTrap();
+		ClapTrap(const ClapTrap& other);
+
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
+
+		static void getValues(const ClapTrap& name);
 };
 
 #endif

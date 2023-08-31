@@ -1,6 +1,8 @@
-NAME	=	ClapTrap
+NAME	=	TrapGame
 SRC		=	main.cpp \
-			ClapTrap.cpp
+			ClapTrap.cpp \
+			ScavTrap.cpp \
+			FragTrap.cpp
 OBJ       = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 SRC_DIR	= ./src
