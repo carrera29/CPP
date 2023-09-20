@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:13:41 by clcarrer          #+#    #+#             */
-/*   Updated: 2023/05/29 15:02:44 by pollo            ###   ########.fr       */
+/*   Updated: 2023/09/13 11:45:21 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class	Zombie {
 	private:
 		std::string name;
 	public:
-		Zombie() {}
+		Zombie();
 		Zombie(std::string name);
 		~Zombie();
 		void announce( void );

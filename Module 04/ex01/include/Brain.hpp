@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 15:09:45 by clcarrer          #+#    #+#             */
-/*   Updated: 2023/09/13 11:39:11 by pollo            ###   ########.fr       */
+/*   Created: 2023/09/01 11:22:30 by clcarrer          #+#    #+#             */
+/*   Updated: 2023/09/01 11:27:38 by clcarrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-int main(void){
-	Zombie	*HordaZ;
+# include <iostream>
 
-	HordaZ = Zombie::zombieHorde(3, "UltraSur");
-	for (int i = 0; i < 3; i++){
-		HordaZ[i].announce();
-	}
-	delete[] HordaZ;
-	return 0;
-}
+class Brain
+{
+	protected:
+		std::string* ideas;
+	public:
+		Brain();
+		virtual ~Brain();
+		Brain(const Brain& other);
+};
+
+#endif
