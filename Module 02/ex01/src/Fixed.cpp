@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:58:10 by pollo             #+#    #+#             */
-/*   Updated: 2023/08/24 16:53:17 by pollo            ###   ########.fr       */
+/*   Updated: 2023/09/27 12:25:30 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@ Fixed::Fixed() : fixedValue(0) {
 Fixed::Fixed(const int value) {
 	std::cout << "Int constructor called" << std::endl;
 	this->fixedValue = value << NUM_BITS_FRAC;
-	// value 42 (101010); fixedValue -> 101010(00000000)fractionalPart
+	// fixedValue = 42 << 8
+	// fixedValue = 101010 << 8
+	// fixedValue = (101010)(00000000) = 10752
 }
 
 Fixed::Fixed(const float value) {
 	std::cout << "Float constructor called" << std::endl;
 	this->fixedValue = roundf(value * (1 << NUM_BITS_FRAC));
-	// value 42.75 (101010 + 0.11); 
-	// fixedValue ->	10101011 * (1 * 2^8); 
-	// 					10101011 * 256; 
-	// 					10101011 * 100000000 = 1010101100000000
+	// fixedValue = roundf(42.75 * (2^8);
+	// fixedValue = roundf(42.75 * 256);
+	// fixedValue = roundf(10944) = (101010)(11000000);
 }
 
 Fixed::~Fixed() {
@@ -58,6 +59,8 @@ void Fixed::setRawBits ( int const raw ) {
 
 float	Fixed::toFloat( void ) const { 
 	return (float)this->fixedValue / (float)(1 << NUM_BITS_FRAC);
+	// (float)10101011000000 / (float)(2^8);
+	// (float)10944 / (float)(256) = 42,75;
 }
 
 int	Fixed::toInt( void ) const {

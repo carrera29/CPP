@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:58:10 by pollo             #+#    #+#             */
-/*   Updated: 2023/08/24 16:59:17 by pollo            ###   ########.fr       */
+/*   Updated: 2023/10/03 16:36:42 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,18 @@ Fixed	Fixed::operator-(const Fixed& other) {
 
 Fixed	Fixed::operator*(const Fixed& other) {
 	Fixed Result;
-	Result.setRawBits((this->fixedValue * other.fixedValue) >> NUM_BITS_FRAC);
+	Result.setRawBits((this->fixedValue * other.fixedValue) / (1 << NUM_BITS_FRAC));
+	// 42 * 2 
+	// (101010(00000000) * 10(00000000)) / 100000000;
+	// 1010100(00000000)(00000000) / 100000000 = 1010100(00000000) = 21.0
 	return Result;
 }
 
 Fixed	Fixed::operator/(const Fixed& other) {
 	Fixed Result;
 	Result.setRawBits((this->fixedValue << NUM_BITS_FRAC) / other.fixedValue);
+	// 42 / 2 
+	// 101010(00000000)(00000000) / 10(00000000) = 10101(00000000) = 21.0
 	return Result;
 }
 
@@ -133,6 +138,6 @@ Fixed	Fixed::max(const Fixed& first, const Fixed& second) {
 }
 
 std::ostream& operator<<(std::ostream& out, const Fixed& other) {
-	out << other.toFloat();;
+	out << other.toFloat();
 	return out;
 }
