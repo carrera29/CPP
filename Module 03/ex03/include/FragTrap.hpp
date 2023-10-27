@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:21:47 by pollo             #+#    #+#             */
-/*   Updated: 2023/08/31 14:12:19 by pollo            ###   ########.fr       */
+/*   Updated: 2023/10/27 20:21:06 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class FragTrap : virtual public ClapTrap {
 		FragTrap(std::string newName);
 		~FragTrap();
 		FragTrap(const FragTrap &other);
+		FragTrap& operator=(const FragTrap& other);
 
 		void highFivesGuys(void);
 };

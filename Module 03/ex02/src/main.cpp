@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:52:06 by pollo             #+#    #+#             */
-/*   Updated: 2023/08/30 17:05:31 by pollo            ###   ########.fr       */
+/*   Updated: 2023/10/27 19:43:45 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,13 @@ int main(void){
 	FragTrap	blackCat("Lulu");
 	blackCat.highFivesGuys();
 	
+	ClapTrap::getValues(whiteCat);
+	ClapTrap::getValues(blackCat);
+	
 	blackCat.attack("Flavia");
-	whiteCat.takeDamage(20);
+	whiteCat.takeDamage(30);
 	whiteCat.attack("Lulu");
-	blackCat.takeDamage(100);
+	blackCat.takeDamage(20);
 	blackCat.attack("Flavia");
 
 	ClapTrap::getValues(whiteCat);

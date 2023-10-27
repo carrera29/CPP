@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:52:00 by pollo             #+#    #+#             */
-/*   Updated: 2023/08/30 16:36:32 by pollo            ###   ########.fr       */
+/*   Updated: 2023/10/27 20:10:03 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,15 @@ ClapTrap::~ClapTrap() {
 ClapTrap::ClapTrap(const ClapTrap& other) {
 	*this = other;
 	std::cout << "\033[1;32mClapTrap Copy constructor called" << std::endl;
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
+	std::cout << "\033[1;32mAssignation operator called" << std::endl;
+	this->Name = other.Name;
+	this->Hit = other.Hit;
+	this->Energy = other.Energy;
+	this->Attack = other.Attack;
+	return *this;
 }
 
 void ClapTrap::attack(const std::string& target){

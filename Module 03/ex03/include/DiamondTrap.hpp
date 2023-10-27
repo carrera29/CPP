@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 17:14:56 by pollo             #+#    #+#             */
-/*   Updated: 2023/08/31 16:18:54 by pollo            ###   ########.fr       */
+/*   Updated: 2023/10/27 20:23:17 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class DiamondTrap : virtual public ClapTrap, public ScavTrap, public FragTrap {
 		DiamondTrap(std::string Name);
 		~DiamondTrap();
 		DiamondTrap(const DiamondTrap& other);
+		DiamondTrap& operator=(const DiamondTrap& other);
 
 		void whoAmI();
 };

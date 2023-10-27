@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 17:14:32 by pollo             #+#    #+#             */
-/*   Updated: 2023/08/31 16:26:24 by pollo            ###   ########.fr       */
+/*   Updated: 2023/10/27 20:22:25 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@ DiamondTrap::~DiamondTrap() {
 DiamondTrap::DiamondTrap(const DiamondTrap& other) : ClapTrap(other), ScavTrap(other), FragTrap(other) {
 	*this = other;
 	std::cout << "\033[1;33mClapTrap Copy constructor called" << std::endl;
+}
+
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other) {
+	this->Name = other.Name;
+	this->Hit = other.Hit;
+	this->Energy = other.Energy;
+	this->Attack = other.Attack;
+	return *this;
 }
 
 void DiamondTrap::DiamondTrap::whoAmI(void) {

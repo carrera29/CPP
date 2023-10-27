@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 09:55:24 by pollo             #+#    #+#             */
-/*   Updated: 2023/08/30 17:08:29 by pollo            ###   ########.fr       */
+/*   Updated: 2023/10/27 20:13:54 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@ ScavTrap::ScavTrap(const char* newName) : ClapTrap(newName) {
 
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other) {
 	std::cout << "\033[1;34mScavTrap Copy constructor called" << std::endl;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
+	this->Name = other.Name;
+	this->Hit = other.Hit;
+	this->Energy = other.Energy;
+	this->Attack = other.Attack;
+	return *this;
 }
 
 ScavTrap::~ScavTrap() {

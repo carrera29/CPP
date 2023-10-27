@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:51:46 by pollo             #+#    #+#             */
-/*   Updated: 2023/08/30 17:04:25 by pollo            ###   ########.fr       */
+/*   Updated: 2023/10/27 20:18:29 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ class ClapTrap
 		unsigned int	Attack;
 	public:
 		ClapTrap(const char* name);
-		~ClapTrap();
 		ClapTrap(const ClapTrap& other);
+		ClapTrap& operator=(const ClapTrap& other);
+		~ClapTrap();
 
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);

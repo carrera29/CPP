@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:52:00 by pollo             #+#    #+#             */
-/*   Updated: 2023/08/30 16:57:38 by pollo            ###   ########.fr       */
+/*   Updated: 2023/10/27 20:17:51 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,15 @@
 
 ClapTrap::ClapTrap(const char* newName) : Name(newName), Hit(10), Energy(10), Attack(0) {
 	std::cout << "\033[1;32mClapTrap Default constructor called" << std::endl;
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
+	std::cout << "\033[1;32mAssignation operator called" << std::endl;
+	this->Name = other.Name;
+	this->Hit = other.Hit;
+	this->Energy = other.Energy;
+	this->Attack = other.Attack;
+	return *this;
 }
 
 ClapTrap::~ClapTrap() {
