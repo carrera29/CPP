@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:13:41 by clcarrer          #+#    #+#             */
-/*   Updated: 2023/08/23 09:09:46 by pollo            ###   ########.fr       */
+/*   Updated: 2023/10/27 18:48:04 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Fixed
 		~Fixed();
 		Fixed(const Fixed& other);
 		
-		int getRawBits( void ) const;
+		int	getRawBits( void ) const;
 		void setRawBits ( int const raw );
 
 		float toFloat( void ) const;
@@ -46,8 +46,8 @@ class Fixed
 
 		Fixed operator+(const Fixed& other);
 		Fixed operator-(const Fixed& other);
-		Fixed operator*(const Fixed& other);
-		Fixed operator/(const Fixed& other);
+		float operator*(const Fixed& other);
+		float operator/(const Fixed& other);
 
 		Fixed&	operator++();
 		Fixed	operator++(int);
@@ -56,6 +56,12 @@ class Fixed
 
 		static Fixed min(const Fixed& first, const Fixed& second);
 		static Fixed max(const Fixed& first, const Fixed& second);
+		// función miembro estática:
+		// 	- No tiene acceso a los miembros no estáticos (atributos o funciones).
+		// 	- Puede ser llamada utilizando el nombre de la clase:: sin crear una instancia de la clase.
+		// 	- No tiene "this".
+		// 	- No está asociada con objetos.
+		// 	- Compartida entre todas las instancias.
 };
 
 std::ostream& operator<<(std::ostream& out, const Fixed& floatValue);

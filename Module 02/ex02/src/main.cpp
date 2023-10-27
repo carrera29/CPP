@@ -6,11 +6,11 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:13:38 by clcarrer          #+#    #+#             */
-/*   Updated: 2023/10/27 11:27:56 by pollo            ###   ########.fr       */
+/*   Updated: 2023/10/27 19:15:38 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.h"
+#include "Fixed.hpp"
 
 int main(void) {
 	Fixed a(10);

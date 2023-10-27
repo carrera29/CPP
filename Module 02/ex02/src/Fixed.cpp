@@ -6,11 +6,11 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:58:10 by pollo             #+#    #+#             */
-/*   Updated: 2023/10/27 11:08:24 by pollo            ###   ########.fr       */
+/*   Updated: 2023/10/27 18:47:30 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.h"
+#include "Fixed.hpp"
 
 Fixed::Fixed() : fixedValue(0) {}
 
