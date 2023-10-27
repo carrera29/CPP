@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:13:41 by clcarrer          #+#    #+#             */
-/*   Updated: 2023/09/27 12:35:44 by pollo            ###   ########.fr       */
+/*   Updated: 2023/10/27 11:08:27 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ class Fixed
 
 		Fixed operator+(const Fixed& other);
 		Fixed operator-(const Fixed& other);
-		Fixed operator*(const Fixed& other);
-		Fixed operator/(const Fixed& other);
+		float operator*(const Fixed& other);
+		float operator/(const Fixed& other);
 
 		Fixed&	operator++();
 		Fixed	operator++(int);

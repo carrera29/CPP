@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:58:10 by pollo             #+#    #+#             */
-/*   Updated: 2023/10/03 16:36:42 by pollo            ###   ########.fr       */
+/*   Updated: 2023/10/27 11:08:24 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,21 +90,12 @@ Fixed	Fixed::operator-(const Fixed& other) {
 	return Result;
 }
 
-Fixed	Fixed::operator*(const Fixed& other) {
-	Fixed Result;
-	Result.setRawBits((this->fixedValue * other.fixedValue) / (1 << NUM_BITS_FRAC));
-	// 42 * 2 
-	// (101010(00000000) * 10(00000000)) / 100000000;
-	// 1010100(00000000)(00000000) / 100000000 = 1010100(00000000) = 21.0
-	return Result;
+float	Fixed::operator*(const Fixed& other) {
+	return this->toFloat() * other.toFloat();
 }
 
-Fixed	Fixed::operator/(const Fixed& other) {
-	Fixed Result;
-	Result.setRawBits((this->fixedValue << NUM_BITS_FRAC) / other.fixedValue);
-	// 42 / 2 
-	// 101010(00000000)(00000000) / 10(00000000) = 10101(00000000) = 21.0
-	return Result;
+float	Fixed::operator/(const Fixed& other) {
+	return this->toFloat() / other.toFloat();
 }
 
 Fixed&	Fixed::operator++() {
