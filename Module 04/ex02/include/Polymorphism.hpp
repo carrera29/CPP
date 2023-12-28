@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/31 16:50:01 by pollo             #+#    #+#             */
-/*   Updated: 2023/08/31 18:07:07 by pollo            ###   ########.fr       */
+/*   Created: 2023/05/12 11:51:46 by pollo             #+#    #+#             */
+/*   Updated: 2023/12/28 19:07:43 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,30 @@
 # define POLYMORPHISM_HPP
 
 # include <iostream>
+# include "Brain.hpp"
 
-class Animal {
+class AAnimal
+{
 	protected:
-		std::string type;
+		std::string	type;
+
+		AAnimal();
+		AAnimal(std::string Animal);
+	
 	public:
-		Animal();
-		Animal(const std::string animal_type);
-		virtual ~Animal();
-		Animal(const Animal& other);
-		Animal&	operator=(const Animal& other);
+		virtual ~AAnimal();
+		AAnimal(const AAnimal& other);
+		AAnimal& operator=(const AAnimal& other);
 
 		std::string getType() const;
 		virtual void makeSound() const;
 };
 
-class Dog : public Animal {
+class Dog : public AAnimal
+{
+	private:
+		Brain*	dogBrain;
+
 	public:
 		Dog();
 		virtual ~Dog();
@@ -39,7 +47,11 @@ class Dog : public Animal {
 		virtual void makeSound() const;
 };
 
-class Cat : public Animal {
+class Cat : public AAnimal
+{
+	private:
+		Brain*	catBrain;
+
 	public:
 		Cat();
 		virtual ~Cat();

@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 16:52:08 by pollo             #+#    #+#             */
-/*   Updated: 2023/08/31 17:56:30 by pollo            ###   ########.fr       */
+/*   Updated: 2023/12/27 21:38:04 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,14 @@ Animal::Animal(const Animal& other) {
 	std::cout << "\033[1;31mAnimal Copy constructor called" << std::endl;
 }
 
+Animal&	Animal::operator=(const Animal& other) {
+	std::cout << "\033[1;31mAssignation operator called" << std::endl;
+	this->type = other.type;
+	return *this;
+}
+
 void Animal::makeSound() const{
-	std::cout << "\033[1;31m ... buuuuuuuh ..." << std::endl;
+	std::cout << "\033[1;31m..." << std::endl;
 }
 
 std::string Animal::getType() const{
@@ -53,8 +59,14 @@ Dog::Dog(const Dog& other) {
 	std::cout << "\033[1;32mDog Copy constructor called" << std::endl;
 }
 
+Dog&	Dog::operator=(const Dog& other) {
+	std::cout << "\033[1;32mAssignation operator called" << std::endl;
+	this->type = other.type;
+	return *this;
+}
+
 void Dog::makeSound() const{
-	std::cout << "\033[1;32m ... Guau ..." << std::endl;
+	std::cout << "\033[1;32mGuau!" << std::endl;
 }
 
 
@@ -73,6 +85,12 @@ Cat::Cat(const Cat& other) {
 	std::cout << "\033[1;33mCat Copy constructor called" << std::endl;
 }
 
+Cat& Cat::operator=(const Cat& other) {
+	std::cout << "\033[1;33mAssignation operator called" << std::endl;
+	this->type = other.type;
+	return *this;
+}
+
 void Cat::makeSound() const{
-	std::cout << "\033[1;33m ... Miau ..." << std::endl;
+	std::cout << "\033[1;33mMiau!" << std::endl;
 }

@@ -26,6 +26,7 @@ class Animal
 		Animal(std::string Animal);
 		virtual ~Animal();
 		Animal(const Animal& other);
+		Animal& operator=(const Animal& other);
 
 		std::string getType() const;
 		virtual void makeSound() const;
@@ -39,6 +40,7 @@ class Dog : public Animal
 		Dog();
 		virtual ~Dog();
 		Dog(const Dog& other);
+		Dog& operator=(const Dog& other);
 
 		virtual void makeSound() const;
 };
@@ -51,6 +53,7 @@ class Cat : public Animal
 		Cat();
 		virtual ~Cat();
 		Cat(const Cat& other);
+		Cat& operator=(const Cat& other);
 
 		virtual void makeSound() const;
 };

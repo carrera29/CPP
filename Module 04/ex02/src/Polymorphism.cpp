@@ -6,46 +6,47 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:52:00 by pollo             #+#    #+#             */
-/*   Updated: 2023/12/27 21:39:02 by pollo            ###   ########.fr       */
+/*   Updated: 2023/12/28 19:06:50 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Polymorphism.hpp"
 
-Animal::Animal() {
-	std::cout << "\033[1;31mAnimal Default constructor called" << std::endl;
+AAnimal::AAnimal() : type("AAnimal") {
+	std::cout << "\033[1;31mAAnimal constructor called" << std::endl;
 }
 
-Animal::Animal(std::string Animal) : type(Animal) {
-	std::cout << "\033[1;31mAnimal Default constructor called" << std::endl;
+AAnimal::AAnimal(std::string Animal) : type(Animal) {
+	std::cout << "\033[1;31mAAnimal Default constructor called" << std::endl;
 }
 
-Animal::~Animal() {
-	std::cout << "\033[1;31mAnimal Destructor constructor called" << std::endl;
+AAnimal::~AAnimal() {
+	std::cout << "\033[1;31mAAnimal Destructor constructor called" << std::endl;
 }
 
-Animal::Animal(const Animal& other) {
+AAnimal::AAnimal(const AAnimal& other) {
 	*this = other;
-	std::cout << "\033[1;31mAnimal assignation operator called" << std::endl;
+	std::cout << "\033[1;31mAAnimal Assignation operator called" << std::endl;
 }
 
-Animal&	Animal::operator=(const Animal& other) {
+AAnimal&	AAnimal::operator=(const AAnimal& other) {
+	std::cout << "\033[1;31mAAnimal Assignation operator called" << std::endl;
 	this->type = other.type;
 	return *this;
 }
 
-std::string Animal::getType() const{
+std::string AAnimal::getType() const{
 	return this->type;
 }
 
-void Animal::makeSound() const {
+void AAnimal::makeSound() const {
 	std::cout << "\033[1;31m..." << std::endl;
 }
 
 
 //-------------- DOG ---------------
 
-Dog::Dog() : Animal("dog") {
+Dog::Dog() : AAnimal("dog") {
 	std::cout << "\033[1;32mDog Default constructor called" << std::endl;
 	try {
 		this->dogBrain = new Brain;
@@ -72,13 +73,13 @@ Dog& Dog::operator=(const Dog& other) {
 }
 
 void Dog::makeSound() const {
-std::cout << "\033[1;32mGuau!" << std::endl;
+	std::cout << "\033[1;32mGuau!" << std::endl;
 }
 
 
 //-------------- CAT ---------------
 
-Cat::Cat() : Animal("cat") {
+Cat::Cat() : AAnimal("cat") {
 	std::cout << "\033[1;33mCat Default constructor called" << std::endl;
 	try {
 		this->catBrain = new Brain;
@@ -105,5 +106,5 @@ Cat& Cat::operator=(const Cat& other) {
 }
 
 void Cat::makeSound() const {
-	std::cout << "\033[1;33Miau!" << std::endl;
+	std::cout << "\033[1;33mMiau!" << std::endl;
 }

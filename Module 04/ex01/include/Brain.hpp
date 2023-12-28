@@ -23,6 +23,7 @@ class Brain
 		Brain();
 		virtual ~Brain();
 		Brain(const Brain& other);
+		Brain& operator=(const Brain& other);
 };
 
 #endif
