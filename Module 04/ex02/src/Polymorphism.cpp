@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:52:00 by pollo             #+#    #+#             */
-/*   Updated: 2024/01/03 13:18:46 by pollo            ###   ########.fr       */
+/*   Updated: 2024/01/03 13:44:03 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,7 @@ void AAnimal::makeSound() const {
 
 Dog::Dog() : AAnimal("dog") {
 	std::cout << "\033[1;32mDog Default constructor called" << std::endl;
-	try {
-		this->dogBrain = new Brain;
-	}
-	catch(std::bad_alloc& e) {
-		std::cout << "\033[1;32mMemory error: " << e.what() << std::endl;
-	}
+	this->dogBrain = new Brain;
 }
 
 Dog::~Dog() {
@@ -99,12 +94,7 @@ void Dog::putIdea(const std::string& newIdea) {
 
 Cat::Cat() : AAnimal("cat") {
 	std::cout << "\033[1;33mCat Default constructor called" << std::endl;
-	try {
-		this->catBrain = new Brain;
-	}
-	catch(std::bad_alloc& e) {
-		std::cout << "\033[1;32mMemory error: " << e.what() << std::endl;
-	}
+	this->catBrain = new Brain;
 }
 
 Cat::~Cat() {
