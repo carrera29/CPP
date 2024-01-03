@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:52:00 by pollo             #+#    #+#             */
-/*   Updated: 2023/12/28 19:06:50 by pollo            ###   ########.fr       */
+/*   Updated: 2024/01/03 13:18:46 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,24 @@ void Dog::makeSound() const {
 	std::cout << "\033[1;32mGuau!" << std::endl;
 }
 
+void Dog::getIdea() {
+	std::string idea;
+
+	for (int i = 0; i < 100; i++) {
+		if (!this->dogBrain->ideas[i].empty()) {
+			idea += this->dogBrain->ideas[i];
+		}
+		else {
+			break;
+		}
+	}
+	std::cout << idea << std::endl;
+}
+
+void Dog::putIdea(const std::string& newIdea) {
+	*this->dogBrain->ideas = newIdea;
+}
+
 
 //-------------- CAT ---------------
 
@@ -107,4 +125,22 @@ Cat& Cat::operator=(const Cat& other) {
 
 void Cat::makeSound() const {
 	std::cout << "\033[1;33mMiau!" << std::endl;
+}
+
+void Cat::getIdea() {
+	std::string idea;
+
+	for (int i = 0; i < 100; i++) {
+		if (!this->catBrain->ideas[i].empty()) {
+			idea += this->catBrain->ideas[i];
+		}
+		else {
+			break;
+		}
+	}
+	std::cout << idea << std::endl;
+}
+
+void Cat::putIdea(const std::string& newIdea) {
+	*this->catBrain->ideas = newIdea;
 }

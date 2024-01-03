@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 11:22:30 by clcarrer          #+#    #+#             */
-/*   Updated: 2023/12/26 19:32:11 by pollo            ###   ########.fr       */
+/*   Updated: 2024/01/03 13:19:34 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 
 class Brain
 {
-	protected:
-		std::string* ideas;
-
+	static const int Nideas = 100;
+	
 	public:
+
+		std::string ideas[Nideas];
+		
 		Brain();
 		virtual ~Brain();
 		Brain(const Brain& other);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Polymorphism.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:51:46 by pollo             #+#    #+#             */
-/*   Updated: 2023/09/01 11:55:41 by clcarrer         ###   ########.fr       */
+/*   Updated: 2024/01/03 12:20:12 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class Dog : public Animal
 {
 	private:
 		Brain*	dogBrain;
+
 	public:
 		Dog();
 		virtual ~Dog();
@@ -43,12 +44,16 @@ class Dog : public Animal
 		Dog& operator=(const Dog& other);
 
 		virtual void makeSound() const;
+
+		void putIdea(const std::string& newIdea);
+		void getIdea();
 };
 
 class Cat : public Animal
 {
 	private:
 		Brain*	catBrain;
+
 	public:
 		Cat();
 		virtual ~Cat();
@@ -56,6 +61,9 @@ class Cat : public Animal
 		Cat& operator=(const Cat& other);
 
 		virtual void makeSound() const;
+
+		void putIdea(const std::string& newIdea);
+		void getIdea();
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:51:46 by pollo             #+#    #+#             */
-/*   Updated: 2023/12/28 19:07:43 by pollo            ###   ########.fr       */
+/*   Updated: 2024/01/03 13:11:30 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ class Dog : public AAnimal
 		Dog& operator=(const Dog& other);
 
 		virtual void makeSound() const;
+
+		void putIdea(const std::string& newIdea);
+		void getIdea();
 };
 
 class Cat : public AAnimal
@@ -59,6 +62,9 @@ class Cat : public AAnimal
 		Cat& operator=(const Cat& other);
 
 		virtual void makeSound() const;
+
+		void putIdea(const std::string& newIdea);
+		void getIdea();
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:52:00 by pollo             #+#    #+#             */
-/*   Updated: 2023/12/27 21:39:02 by pollo            ###   ########.fr       */
+/*   Updated: 2024/01/03 12:31:13 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,7 @@ void Animal::makeSound() const {
 
 Dog::Dog() : Animal("dog") {
 	std::cout << "\033[1;32mDog Default constructor called" << std::endl;
-	try {
-		this->dogBrain = new Brain;
-	}
-	catch(std::bad_alloc& e) {
-		std::cout << "\033[1;32mMemory error: " << e.what() << std::endl;
-	}
+	this->dogBrain = new Brain;
 }
 
 Dog::~Dog() {
@@ -61,18 +56,37 @@ Dog::~Dog() {
 }
 
 Dog::Dog(const Dog& other) {
-	*this = other;
+	*this->dogBrain = *other.dogBrain;
 	std::cout << "\033[1;32mDog Copy constructor called" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& other) {
 	std::cout << "\033[1;33mDog assignation operator called" << std::endl;
 	this->type = other.type;
+	*this->dogBrain = *other.dogBrain;
 	return *this;
 }
 
 void Dog::makeSound() const {
-std::cout << "\033[1;32mGuau!" << std::endl;
+	std::cout << "\033[1;32mGuau!" << std::endl;
+}
+
+void Dog::getIdea() {
+	std::string idea;
+
+	for (int i = 0; i < 100; i++) {
+		if (!this->dogBrain->ideas[i].empty()) {
+			idea += this->dogBrain->ideas[i];
+		}
+		else {
+			break;
+		}
+	}
+	std::cout << idea << std::endl;
+}
+
+void Dog::putIdea(const std::string& newIdea) {
+	*this->dogBrain->ideas = newIdea;
 }
 
 
@@ -80,12 +94,7 @@ std::cout << "\033[1;32mGuau!" << std::endl;
 
 Cat::Cat() : Animal("cat") {
 	std::cout << "\033[1;33mCat Default constructor called" << std::endl;
-	try {
-		this->catBrain = new Brain;
-	}
-	catch(std::bad_alloc& e) {
-		std::cout << "\033[1;32mMemory error: " << e.what() << std::endl;
-	}
+	this->catBrain = new Brain;
 }
 
 Cat::~Cat() {
@@ -106,4 +115,22 @@ Cat& Cat::operator=(const Cat& other) {
 
 void Cat::makeSound() const {
 	std::cout << "\033[1;33Miau!" << std::endl;
+}
+
+void Cat::getIdea() {
+	std::string idea;
+
+	for (int i = 0; i < 100; i++) {
+		if (!this->catBrain->ideas[i].empty()) {
+			idea += this->catBrain->ideas[i];
+		}
+		else {
+			break;
+		}
+	}
+	std::cout << idea << std::endl;
+}
+
+void Cat::putIdea(const std::string& newIdea) {
+	*this->catBrain->ideas = newIdea;
 }
