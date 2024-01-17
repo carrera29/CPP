@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:51:46 by pollo             #+#    #+#             */
-/*   Updated: 2024/01/03 13:11:30 by pollo            ###   ########.fr       */
+/*   Updated: 2024/01/17 18:29:53 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 # include <iostream>
 # include "Brain.hpp"
 
+/*
+	cuando se utiliza un destructor virtual puro en una clase abstracta, 
+	la intención es señalar que la clase es abstracta y
+	que no debería haber instancias directas de esa clase.
+*/
 class AAnimal
 {
 	protected:
@@ -25,7 +30,7 @@ class AAnimal
 		AAnimal(std::string Animal);
 	
 	public:
-		virtual ~AAnimal();
+		virtual ~AAnimal() = 0;
 		AAnimal(const AAnimal& other);
 		AAnimal& operator=(const AAnimal& other);
 
