@@ -97,8 +97,8 @@ def generar_clase(nombre_archivo, secciones):
                     tipo = ' '.join(palabras[:-1])
                 # Corregir el nombre de la función get()
                 nombre_get = 'get' + nombre_variable.capitalize()
-                codigo_clase += f'		{tipo} {nombre_get}();\n'
-                codigo_src += f'\n{tipo} {nombre_archivo}::{nombre_get}' + '() {\n'
+                codigo_clase += f'		{tipo} {nombre_get}() const;\n'
+                codigo_src += f'\n{tipo} {nombre_archivo}::{nombre_get}' + '() const {\n'
                 codigo_src += f'    return this->{nombre_variable};\n'
                 codigo_src += '}\n'
     
