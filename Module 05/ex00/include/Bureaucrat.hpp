@@ -18,44 +18,28 @@ class Bureaucrat {
 		Bureaucrat(const Bureaucrat& other);
 		Bureaucrat& operator=(const Bureaucrat& other);
 
-		const std::string	getName() const;
+		const std::string&	getName() const;
 		int 				getGrade() const;
 
 		class GradeTooHightException {
-
 			public:
-				const char* what() const throw() {
-					return "\033[31mError: Grade is too hight";
-				}
-
+				const char* what() const throw();
 		};
 
 		class GradeTooLowException {
-
 			public:
-				const char* what() const throw() {
-					return "\033[31mError: Grade is too low";
-				}
-
+				const char* what() const throw();
 		};
 
 		class GradeNotValid {
-
 			public:
-				const char* what() const throw() {
-					return "\033[31mError: Grade not valid";
-				}
-
+				const char* what() const throw();
 		};
 
 		void incrementGrade(const int increment);
 		void decrementGrade(const int decrement);
 
-	friend std::ostream& operator<<(std::ostream& os, Bureaucrat& bureaucrat) {
-		
-    	os << "\033[34m" << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
-    	return os;
-	}
+	friend std::ostream& operator<<(std::ostream& os, Bureaucrat& bureaucrat);
 
 };
 

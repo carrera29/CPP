@@ -12,7 +12,7 @@
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() {
+Bureaucrat::Bureaucrat() : name(""), grade(150) {
 	std::cout << "\033[32mBureaucrat Default constructor called" << std::endl;
 }
 
@@ -21,15 +21,14 @@ Bureaucrat::Bureaucrat(const std::string Name, const int Grade) : name(Name) {
 
 	if (Grade > 150 || Grade < 1)
 		throw GradeNotValid();
-	else
-		this->grade = Grade;
+	this->grade = Grade;
 }
 
 Bureaucrat::~Bureaucrat() {
 	std::cout << "\033[31mBureaucrat " << name << ", Default destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other) {
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.name) {
 	*this = other;
 	std::cout << "Bureaucrat Copy constructor called" << std::endl;
 }
@@ -42,7 +41,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
 	return *this;
 }
 
-const std::string Bureaucrat::getName() const {
+const std::string& Bureaucrat::getName() const {
     return this->name;
 }
 
@@ -56,10 +55,9 @@ void	Bureaucrat::incrementGrade(const int increment) {
 
 	if (increment < 0)
 		throw GradeNotValid();
-	else if (Value < 1)
+	if (Value < 1)
 		throw GradeTooHightException();
-	else 
-		this->grade -= increment;
+	this->grade -= increment;
 }
 
 void	Bureaucrat::decrementGrade(const int decrement) {
@@ -67,8 +65,27 @@ void	Bureaucrat::decrementGrade(const int decrement) {
 	
 	if (decrement < 0)
 		throw GradeNotValid();
-	else if ((this->grade + decrement) > 150)
+	if ((this->grade + decrement) > 150)
 		throw GradeTooLowException();
-	else
-		this->grade += decrement;
+	this->grade += decrement;
 }
+
+
+const char* Bureaucrat::GradeTooHightException::what() const throw() {
+	return "\033[31mError: Grade is too hight";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
+	return "\033[31mError: Grade is too low";
+}
+
+const char* Bureaucrat::GradeNotValid::what() const throw() {
+	return "\033[31mError: Grade not valid";
+}
+
+
+std::ostream& operator<<(std::ostream& os, Bureaucrat& bureaucrat) {
+    os << "\033[34m" << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+    return os;
+}
+			
