@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:02:22 by pollo             #+#    #+#             */
-/*   Updated: 2024/01/21 20:35:21 by pollo            ###   ########.fr       */
+/*   Updated: 2024/01/28 17:03:19 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ void	Bureaucrat::decrementGrade(const int decrement) {
 		throw GradeTooLowException();
 	this->grade += decrement;
 }
-
 
 const char* Bureaucrat::GradeTooHightException::what() const throw() {
 	return "\033[31mError: Grade is too hight";

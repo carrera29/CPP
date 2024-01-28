@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,80 +10,84 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form() : name(""), isSigned(false), requiredToSign(150), requiredToExecute(150) {
-	std::cout << "\033[32mForm Default constructor called" << std::endl;
+AForm::AForm() : name(""), isSigned(false), requiredToSign(150), requiredToExecute(150) {
+	std::cout << "\033[32mAForm Default constructor called" << std::endl;
 }
 
-Form::Form(const std::string Name, const int toSign, const int toExecute) :
+AForm::AForm(const std::string Name, const int toSign, const int toExecute) :
 	name(Name), isSigned(false) {
 		if (toSign < 1 || toSign > 150 || toExecute < 1 || toExecute > 150)
 			throw GradeNotValid();
 		this->requiredToSign = toSign, this->requiredToExecute = toExecute;
-		std::cout << "\033[32mForm Default constructor called" << std::endl;
+		std::cout << "\033[32mAForm Default constructor called" << std::endl;
 }
 
-Form::~Form() {
-	std::cout << "\033[31mForm Default destructor called" << std::endl;
+AForm::~AForm() {
+	std::cout << "\033[31mAForm Default destructor called" << std::endl;
 }
 
-Form::Form(const Form& other) {
+AForm::AForm(const AForm& other) {
 	*this = other;
-	std::cout << "Form Copy constructor called" << std::endl;
+	std::cout << "AForm Copy constructor called" << std::endl;
 }
 
-Form& Form::operator=(const Form& other) {
-	std::cout << "Form Copy assignment called" << std::endl;
+AForm& AForm::operator=(const AForm& other) {
+	std::cout << "AForm Copy assignment called" << std::endl;
 	this->isSigned = other.isSigned;
 	this->requiredToSign = other.requiredToSign;
 	this->requiredToExecute = other.requiredToExecute;
 	return *this;
 }
 
-const std::string Form::getName() const {
+const std::string AForm::getName() const {
     return this->name;
 }
 
-bool Form::getSigned() const {
+bool AForm::getSigned() const {
     return this->isSigned;
 }
 
-int Form::getRequiredtosign() const {
+int AForm::getRequiredtosign() const {
     return this->requiredToSign;
 }
 
-int Form::getRequiredtoexecute() const {
+int AForm::getRequiredtoexecute() const {
     return this->requiredToExecute;
 }
 
-void Form::beSigned(const Bureaucrat& buro) {
+void AForm::beSigned(const Bureaucrat& buro) {
 	if (buro.getGrade() > this->getRequiredtosign())
 		throw GradeTooLowException();
 	this->isSigned = true;
-	buro.signForm(*this);
+	buro.signAForm(*this);
 }
 
-const char* Form::GradeTooHighException::what() const throw() {
+const char* AForm::GradeTooHighException::what() const throw() {
 	return "\033[31mError: Grade is too hight";
 }
 
-const char* Form::GradeTooLowException::what() const throw() {
+const char* AForm::GradeTooLowException::what() const throw() {
 	return "\033[31mError: Grade is too low";
 }
 
-const char* Form::GradeNotValid::what() const throw() {
+const char* AForm::GradeNotValid::what() const throw() {
 	return "\033[31mError: Grade not valid";
 }
 
-std::ostream& operator<<(std::ostream& os, Form& form) {
-	os << "\033[34m" << form.getName();
-	if (form.getSigned() == true)
+std::ostream& operator<<(std::ostream& os, AForm& AForm) {
+	os << "\033[34m" << AForm.getName();
+	if (AForm.getSigned() == true)
 		os << " is signed: ";
 	else
 		os << " is not signed: ";
-    os << "\nNeeds a grade of " << form.getRequiredtosign() << " to be signed and " 
-	<< form.getRequiredtoexecute() << " to be execued.";
+    os << "\nNeeds a grade of " << AForm.getRequiredtosign() << " to be signed and " 
+	<< AForm.getRequiredtoexecute() << " to be execued.";
     return os;
+}
+
+void	AForm::setSigned(bool value) {
+	this->isSigned = value;
 }

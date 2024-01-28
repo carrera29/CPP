@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 19:37:21 by pollo             #+#    #+#             */
-/*   Updated: 2024/01/28 19:58:01 by pollo            ###   ########.fr       */
+/*   Updated: 2024/01/28 21:52:59 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 class Bureaucrat;
 
-class Form {
+class AForm {
 
 	private:
 
@@ -25,36 +25,40 @@ class Form {
 		int					requiredToSign;
 		int					requiredToExecute;
 
+	protected:
+
+		void	setSigned(bool value);
+
 	public:
 
-		Form();
-		Form(const std::string Name, const int toSign, const int toExecute);
-		~Form();
-		Form(const Form& other);
-		Form& operator=(const Form& other);
+		AForm();
+		AForm(const std::string Name, const int toSign, const int toExecute);
+		virtual ~AForm() = 0;
+		AForm(const AForm& other);
+		virtual AForm& operator=(const AForm& other) = 0;
 
-		const std::string	getName() const;
-		bool 				getSigned() const;
-		int 				getRequiredtosign() const;
-		int 				getRequiredtoexecute() const;
+		virtual const std::string	getName() const = 0;
+		virtual bool 				getSigned() const = 0;
+		virtual int 				getRequiredtosign() const = 0;
+		virtual int 				getRequiredtoexecute() const = 0;
 
-		void				beSigned(const Bureaucrat& buro);
+		virtual void				beSigned(const Bureaucrat& buro) = 0;
 
 		class GradeTooHighException {
 			public:
-				const char* what() const throw();
+				virtual const char* what() const throw() = 0;
 		};
 		
 		class GradeTooLowException {
 			public:
-				const char* what() const throw();
+				virtual const char* what() const throw() = 0;
 		};
 
 		class GradeNotValid {
 			public:
-				const char* what() const throw();
+				virtual const char* what() const throw() = 0;
 		};
 
-		friend std::ostream& operator<<(std::ostream& os, Form& form);
+		friend std::ostream& operator<<(std::ostream& os, AForm& form);
 
 };

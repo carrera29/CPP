@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 19:37:15 by pollo             #+#    #+#             */
-/*   Updated: 2024/01/28 20:06:21 by pollo            ###   ########.fr       */
+/*   Updated: 2024/01/28 21:23:55 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <iostream>
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 
@@ -52,7 +52,7 @@ class Bureaucrat {
 		void incrementGrade(const int increment);
 		void decrementGrade(const int decrement);
 
-		void signForm(const Form& form) const;
+		void signForm(const AForm& form) const;
 
 	friend std::ostream& operator<<(std::ostream& os, Bureaucrat& bureaucrat);
 

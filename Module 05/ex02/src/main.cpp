@@ -6,12 +6,12 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:01:27 by pollo             #+#    #+#             */
-/*   Updated: 2024/01/28 20:17:03 by pollo            ###   ########.fr       */
+/*   Updated: 2024/01/28 21:22:43 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 int main() {
     
@@ -22,8 +22,8 @@ int main() {
         std::cout << bureaucrat2 << std::endl;
         std::cout << bureaucrat1 << std::endl;
 
-        Form    reglamento("Reglamento", 150, 145);
-        Form    ley("Constitucion", 50, 1);
+        AForm    reglamento("Reglamento", 150, 145);
+        AForm    ley("Constitucion", 50, 1);
 
         reglamento.beSigned(bureaucrat1);
         
@@ -36,11 +36,11 @@ int main() {
         std::cerr << e.what() << std::endl;
     } catch (const Bureaucrat::GradeNotValid& e) {
         std::cerr << e.what() << std::endl;
-    } catch (const Form::GradeTooHighException& e) {
+    } catch (const AForm::GradeTooHighException& e) {
         std::cerr << e.what() << std::endl;
-    } catch (const Form::GradeTooLowException& e) {
+    } catch (const AForm::GradeTooLowException& e) {
         std::cerr << e.what() << std::endl;
-    } catch (const Form::GradeNotValid& e) {
+    } catch (const AForm::GradeNotValid& e) {
         std::cerr << e.what() << std::endl;
     }
 

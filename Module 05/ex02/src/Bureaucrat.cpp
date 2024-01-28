@@ -6,12 +6,12 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:02:22 by pollo             #+#    #+#             */
-/*   Updated: 2024/01/28 20:12:12 by pollo            ###   ########.fr       */
+/*   Updated: 2024/01/28 21:22:39 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat() : name(""), grade(150) {
 	std::cout << "\033[32mBureaucrat Default constructor called" << std::endl;
@@ -83,13 +83,13 @@ const char* Bureaucrat::GradeNotValid::what() const throw() {
 	return "\033[31mError: Grade not valid";
 }
 
-void Bureaucrat::signForm(const Form& form) const {
-	if (form.getSigned() == false)
+void Bureaucrat::signAForm(const AForm& AForm) const {
+	if (AForm.getSigned() == false)
 		std::cout << "\033[31m" << this->getName() << " couldn’t sign " 
-		<< form.getName() << " because grade is too hight." << std::endl;
+		<< AForm.getName() << " because grade is too hight." << std::endl;
 	else
 		std::cout << "\033[34m" << this->getName() << " signed " 
-		<< form.getName() << std::endl;
+		<< AForm.getName() << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat& bureaucrat) {

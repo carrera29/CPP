@@ -6,7 +6,7 @@
 #    By: pollo <pollo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/31 16:51:31 by pollo             #+#    #+#              #
-#    Updated: 2024/01/28 19:27:49 by pollo            ###   ########.fr        #
+#    Updated: 2024/01/28 21:29:11 by pollo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,11 @@ NAME	=	Bureau
 
 SRC		=	main.cpp \
 			Bureaucrat.cpp \
-			Form.cpp
+			AForm.cpp \
+			ShrubberyCreationForm.cpp \
+			RobotomyRequestForm.cpp \
+			PresidentialPardonForm.cpp
+
 
 OBJ       = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
