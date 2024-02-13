@@ -58,5 +58,6 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const {
 			throw AForm::GradeTooLowException();
 		RobotomyOperation(this->target);
 	}
-	throw AForm::FormNotsigned();
+	else
+		throw AForm::FormNotsigned();
 }

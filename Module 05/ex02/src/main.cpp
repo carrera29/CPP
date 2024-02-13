@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:01:27 by pollo             #+#    #+#             */
-/*   Updated: 2024/02/13 18:28:42 by pollo            ###   ########.fr       */
+/*   Updated: 2024/02/13 18:52:22 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main() {
 
         bureaucrat1.signForm(doc1);
         bureaucrat2.signForm(doc2);
-        bureaucrat3.signForm(doc3);
+        bureaucrat4.signForm(doc3);
 
         bureaucrat2.executeForm(doc1);
         bureaucrat3.executeForm(doc2);

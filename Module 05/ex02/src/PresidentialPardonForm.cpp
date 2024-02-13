@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:47:40 by pollo             #+#    #+#             */
-/*   Updated: 2024/02/13 16:49:46 by pollo            ###   ########.fr       */
+/*   Updated: 2024/02/13 18:51:21 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ void	PresidentialPardonForm::execute(Bureaucrat const & executor) const {
 			throw AForm::GradeTooLowException();
 		std::cout << "Informs that " << this->target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 	}
-	throw AForm::FormNotsigned();
+	else
+		throw AForm::FormNotsigned();
 }
