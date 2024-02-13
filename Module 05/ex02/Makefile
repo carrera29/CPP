@@ -6,7 +6,7 @@
 #    By: pollo <pollo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/31 16:51:31 by pollo             #+#    #+#              #
-#    Updated: 2024/01/28 21:29:11 by pollo            ###   ########.fr        #
+#    Updated: 2024/02/12 21:18:38 by pollo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ clean:
 
 fclean:	clean
 	@rm -f $(NAME)
+	@rm -f ./*_shrubbery
 
 re:		fclean all
 

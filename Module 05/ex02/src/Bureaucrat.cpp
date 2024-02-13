@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:02:22 by pollo             #+#    #+#             */
-/*   Updated: 2024/01/28 21:22:39 by pollo            ###   ########.fr       */
+/*   Updated: 2024/02/12 21:38:58 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,24 @@ const char* Bureaucrat::GradeNotValid::what() const throw() {
 	return "\033[31mError: Grade not valid";
 }
 
-void Bureaucrat::signAForm(const AForm& AForm) const {
-	if (AForm.getSigned() == false)
-		std::cout << "\033[31m" << this->getName() << " couldn’t sign " 
-		<< AForm.getName() << " because grade is too hight." << std::endl;
-	else
-		std::cout << "\033[34m" << this->getName() << " signed " 
-		<< AForm.getName() << std::endl;
+void Bureaucrat::signForm(AForm& form) const {
+	try {
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed the form " << form.getName() << std::endl;
+	} catch (Bureaucrat::GradeTooLowException& e) {
+		std::cout << "\033[31m" << this->getName() << " couldn't sign the form " 
+		<< form.getName() << " -> " << e.what() << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(AForm& form) const {
+	try {
+		form.execute(*this);
+		std::cout << this->getName() << " executed the form " << form.getName() << std::endl;
+	} catch (Bureaucrat::GradeTooLowException& e) {
+		std::cout << "\033[31m" << this->getName() << " couldn't sign the form " 
+		<< form.getName() << " -> " << e.what() << std::endl;
+	}
 }
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat& bureaucrat) {

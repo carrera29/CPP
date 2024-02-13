@@ -6,20 +6,19 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 21:41:31 by pollo             #+#    #+#             */
-/*   Updated: 2024/01/28 21:54:15 by pollo            ###   ########.fr       */
+/*   Updated: 2024/02/13 18:29:40 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
-#include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("", 145, 137) {
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrub", 145, 137), target("") {
 	std::cout << "\033[32mShrubberyCreationForm Default constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string Name) : AForm(Name, 145, 137) {
-		std::cout << "\033[32mShrubberyCreationForm Default constructor called" << std::endl;
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target_) : AForm("Shrub", 145, 137), target(target_) {
+	std::cout << "\033[32mShrubberyCreationForm Default constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
@@ -33,51 +32,38 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other) {
 	std::cout << "ShrubberyCreationForm Copy assignment called" << std::endl;
+	(void)other;
 	return *this;
 }
 
-const std::string ShrubberyCreationForm::getName() const {
-    return this->getName();
+const std::string	ShrubberyCreationForm::getTarget(void) {
+	return this->target;
 }
 
-bool ShrubberyCreationForm::getSigned() const {
-    return this->getSigned();
-}
-
-int ShrubberyCreationForm::getRequiredtosign() const {
-    return this->getRequiredtosign();
-}
-
-int ShrubberyCreationForm::getRequiredtoexecute() const {
-    return this->getRequiredtoexecute();
-}
-
-void ShrubberyCreationForm::beSigned(const Bureaucrat& buro) {
-	if (buro.getGrade() > this->getRequiredtosign())
-		throw GradeTooLowException();
-	this->setSigned(true);
-	buro.signForm(*this);
-}
-
-const char* ShrubberyCreationForm::GradeTooHighException::what() const throw() {
-	return "\033[31mError: Grade is too hight";
-}
-
-const char* ShrubberyCreationForm::GradeTooLowException::what() const throw() {
-	return "\033[31mError: Grade is too low";
-}
-
-const char* ShrubberyCreationForm::GradeNotValid::what() const throw() {
-	return "\033[31mError: Grade not valid";
-}
-
-std::ostream& operator<<(std::ostream& os, ShrubberyCreationForm& ShrubberyCreationForm) {
-	os << "\033[34m" << ShrubberyCreationForm.getName();
-	if (ShrubberyCreationForm.getSigned() == true)
-		os << " is signed: ";
+void	plantPineTree(const std::string filename) {
+	const std::string 	treePattern =
+        "     *\n"
+        "    /*\\\n"
+        "   /* *\\\n"
+		"  /* * *\\\n"
+        " /* * * *\\\n"
+		"/* * * * *\\\n"
+		"    |||	\n";
+	std::ofstream outputFile(filename, std::ios::out | std::ios::trunc);
+	if (outputFile.is_open()) {
+		outputFile << treePattern;
+		outputFile.close();
+	}
 	else
-		os << " is not signed: ";
-    os << "\nNeeds a grade of " << ShrubberyCreationForm.getRequiredtosign() << " to be signed and " 
-	<< ShrubberyCreationForm.getRequiredtoexecute() << " to be execued.";
-    return os;
+		std::cerr << "Error: file not opened" << std::endl;
+}
+
+void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
+	if (this->getSigned() == true) {
+		if (executor.getGrade() > this->getRequiredtoexecute())
+			throw AForm::GradeTooLowException();
+		plantPineTree(this->target + "_shrubbery");
+	}
+	else
+		throw AForm::FormNotsigned();
 }

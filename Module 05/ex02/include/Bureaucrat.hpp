@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 19:37:15 by pollo             #+#    #+#             */
-/*   Updated: 2024/01/28 21:23:55 by pollo            ###   ########.fr       */
+/*   Updated: 2024/02/12 21:38:43 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ class Bureaucrat {
 		const std::string&	getName() const;
 		int 				getGrade() const;
 
+		void incrementGrade(const int increment);
+		void decrementGrade(const int decrement);
+
+		void signForm(AForm& form) const;
+		void executeForm(AForm& form) const;
+ 
 		class GradeTooHightException {
 			public:
 				const char* what() const throw();
@@ -48,11 +54,6 @@ class Bureaucrat {
 			public:
 				const char* what() const throw();
 		};
-
-		void incrementGrade(const int increment);
-		void decrementGrade(const int decrement);
-
-		void signForm(const AForm& form) const;
 
 	friend std::ostream& operator<<(std::ostream& os, Bureaucrat& bureaucrat);
 

@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 20:56:37 by pollo             #+#    #+#             */
-/*   Updated: 2024/01/28 20:22:49 by pollo            ###   ########.fr       */
+/*   Updated: 2024/02/12 19:53:41 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void Form::beSigned(const Bureaucrat& buro) {
 	if (buro.getGrade() > this->getRequiredtosign())
 		throw GradeTooLowException();
 	this->isSigned = true;
-	buro.signForm(*this);
 }
 
 const char* Form::GradeTooHighException::what() const throw() {

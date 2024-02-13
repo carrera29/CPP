@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:01:27 by pollo             #+#    #+#             */
-/*   Updated: 2024/01/28 20:17:03 by pollo            ###   ########.fr       */
+/*   Updated: 2024/02/12 20:12:45 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main() {
         Form    reglamento("Reglamento", 150, 145);
         Form    ley("Constitucion", 50, 1);
 
-        reglamento.beSigned(bureaucrat1);
+        bureaucrat1.signForm(ley);
         
         std::cout << reglamento << std::endl;
         std::cout << ley << std::endl;

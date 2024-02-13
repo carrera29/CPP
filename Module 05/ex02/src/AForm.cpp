@@ -18,10 +18,7 @@ AForm::AForm() : name(""), isSigned(false), requiredToSign(150), requiredToExecu
 }
 
 AForm::AForm(const std::string Name, const int toSign, const int toExecute) :
-	name(Name), isSigned(false) {
-		if (toSign < 1 || toSign > 150 || toExecute < 1 || toExecute > 150)
-			throw GradeNotValid();
-		this->requiredToSign = toSign, this->requiredToExecute = toExecute;
+	name(Name), isSigned(false), requiredToSign(toSign), requiredToExecute(toExecute) {
 		std::cout << "\033[32mAForm Default constructor called" << std::endl;
 }
 
@@ -62,7 +59,6 @@ void AForm::beSigned(const Bureaucrat& buro) {
 	if (buro.getGrade() > this->getRequiredtosign())
 		throw GradeTooLowException();
 	this->isSigned = true;
-	buro.signAForm(*this);
 }
 
 const char* AForm::GradeTooHighException::what() const throw() {
@@ -77,6 +73,10 @@ const char* AForm::GradeNotValid::what() const throw() {
 	return "\033[31mError: Grade not valid";
 }
 
+const char* AForm::FormNotsigned::what() const throw() {
+	return "\033[31mError: Form is not signed";
+}
+
 std::ostream& operator<<(std::ostream& os, AForm& AForm) {
 	os << "\033[34m" << AForm.getName();
 	if (AForm.getSigned() == true)
@@ -86,8 +86,4 @@ std::ostream& operator<<(std::ostream& os, AForm& AForm) {
     os << "\nNeeds a grade of " << AForm.getRequiredtosign() << " to be signed and " 
 	<< AForm.getRequiredtoexecute() << " to be execued.";
     return os;
-}
-
-void	AForm::setSigned(bool value) {
-	this->isSigned = value;
 }

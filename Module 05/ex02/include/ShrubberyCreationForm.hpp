@@ -1,40 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/09 10:05:14 by pollo             #+#    #+#             */
+/*   Updated: 2024/02/13 16:18:16 by pollo            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
 
-# include <iostream>
-# include "AForm.hpp"
+#include "AForm.hpp"
+#include <iostream>
+#include <fstream>
 
 class ShrubberyCreationForm : public AForm {
 
+	private:
+
+		const std::string	target;
+	
 	public:
 
 		ShrubberyCreationForm();
-		ShrubberyCreationForm(const std::string Name);
+		ShrubberyCreationForm(const std::string target);
 		~ShrubberyCreationForm();
+		
 		ShrubberyCreationForm(const ShrubberyCreationForm& other);
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
-	
-		const std::string	getName() const override;
-		bool 				getSigned() const override;
-		int 				getRequiredtosign() const override;
-		int 				getRequiredtoexecute() const override;
 
-		void				beSigned(const Bureaucrat& buro) override;
-
-		class GradeTooHighException {
-			public:
-				const char* what() const throw() override;
-		};
-		
-		class GradeTooLowException {
-			public:
-				const char* what() const throw() override;
-		};
-
-		class GradeNotValid {
-			public:
-				const char* what() const throw() override;
-		};
-
-		friend std::ostream& operator<<(std::ostream& os, ShrubberyCreationForm& form);
+		const std::string	getTarget(void);
+		void				execute(Bureaucrat const & executor) const;
 
 };
