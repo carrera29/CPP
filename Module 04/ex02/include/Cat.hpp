@@ -1,52 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Polymorphism.hpp                                   :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/31 16:50:01 by pollo             #+#    #+#             */
-/*   Updated: 2023/08/31 18:07:07 by pollo            ###   ########.fr       */
+/*   Created: 2024/02/16 14:21:57 by pollo             #+#    #+#             */
+/*   Updated: 2024/03/13 21:11:58 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POLYMORPHISM_HPP
-# define POLYMORPHISM_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 # include <iostream>
+# include "AAnimal.hpp"
+# include "Brain.hpp"
 
-class Animal {
-	protected:
-		std::string type;
+class Cat : public AAnimal {
+
+	private:
+
+		Brain*	catBrain;
+
 	public:
-		Animal();
-		Animal(const std::string animal_type);
-		virtual ~Animal();
-		Animal(const Animal& other);
-		Animal&	operator=(const Animal& other);
-
-		std::string getType() const;
-		virtual void makeSound() const;
-};
-
-class Dog : public Animal {
-	public:
-		Dog();
-		virtual ~Dog();
-		Dog(const Dog& other);
-		Dog& operator=(const Dog& other);
-
-		virtual void makeSound() const;
-};
-
-class Cat : public Animal {
-	public:
+	
 		Cat();
 		virtual ~Cat();
 		Cat(const Cat& other);
 		Cat& operator=(const Cat& other);
 
 		virtual void makeSound() const;
+
+		void putIdea(const std::string& newIdea);
+		void getIdea();
+
 };
 
 #endif

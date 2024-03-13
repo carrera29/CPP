@@ -6,14 +6,18 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:52:06 by pollo             #+#    #+#             */
-/*   Updated: 2024/01/17 18:26:13 by pollo            ###   ########.fr       */
+/*   Updated: 2024/03/13 21:19:20 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Polymorphism.hpp"
+#include "AAnimal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "Brain.hpp"
 
 int main(void) {
 
+    
     Dog Milu = Dog();
     Milu.getType();
     Milu.makeSound();

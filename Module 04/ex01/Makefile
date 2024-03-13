@@ -1,7 +1,10 @@
 NAME	=	Poly
 SRC		=	main.cpp \
-			Polymorphism.cpp \
+			Animal.cpp \
+			Cat.cpp \
+			Dog.cpp \
 			Brain.cpp
+
 OBJ       = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 SRC_DIR	= ./src

@@ -6,13 +6,18 @@
 #    By: pollo <pollo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/31 16:51:31 by pollo             #+#    #+#              #
-#    Updated: 2023/08/31 16:52:19 by pollo            ###   ########.fr        #
+#    Updated: 2024/02/16 14:54:03 by pollo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	Poly
 SRC		=	main.cpp \
-			Polymorphism.cpp
+			Animal.cpp \
+			Cat.cpp \
+			Dog.cpp \
+			WrongAnimal.cpp \
+			WrongCat.cpp \
+
 OBJ       = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 SRC_DIR	= ./src
