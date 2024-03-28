@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:01:27 by pollo             #+#    #+#             */
-/*   Updated: 2024/02/13 18:52:22 by pollo            ###   ########.fr       */
+/*   Updated: 2024/03/26 22:17:41 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,21 @@ int main() {
         RobotomyRequestForm doc2("Meta");
         PresidentialPardonForm doc3("Anmistia");
 
-        bureaucrat1.signForm(doc1);
+        bureaucrat1.signForm(doc3);
         bureaucrat2.signForm(doc2);
         bureaucrat4.signForm(doc3);
 
-        bureaucrat2.executeForm(doc1);
-        bureaucrat3.executeForm(doc2);
-        bureaucrat4.executeForm(doc3);
+        // bureaucrat2.executeForm(doc1);
+        // bureaucrat3.executeForm(doc2);
+        // bureaucrat4.executeForm(doc3);
 
     } catch (const Bureaucrat::GradeTooHightException& e) {
         std::cerr << e.what() << std::endl;
     } catch (const Bureaucrat::GradeTooLowException& e) {
         std::cerr << e.what() << std::endl;
-    } catch (const Bureaucrat::GradeNotValid& e) {
-        std::cerr << e.what() << std::endl;
     } catch (const AForm::GradeTooHighException& e) {
         std::cerr << e.what() << std::endl;
     } catch (const AForm::GradeTooLowException& e) {
-        std::cerr << e.what() << std::endl;
-    } catch (const AForm::GradeNotValid& e) {
         std::cerr << e.what() << std::endl;
     } catch (const AForm::FormNotsigned& e) {
         std::cerr << e.what() << std::endl;

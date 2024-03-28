@@ -31,11 +31,6 @@ class Bureaucrat {
 				const char* what() const throw();
 		};
 
-		class GradeNotValid {
-			public:
-				const char* what() const throw();
-		};
-
 		void incrementGrade(const int increment);
 		void decrementGrade(const int decrement);
 

@@ -6,35 +6,35 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:40:23 by pollo             #+#    #+#             */
-/*   Updated: 2024/03/13 21:15:37 by pollo            ###   ########.fr       */
+/*   Updated: 2024/03/25 19:03:23 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
 Cat::Cat() : AAnimal("Cat") {
-	std::cout << "\033[1;33mCat Default constructor called" << std::endl;
+	std::cout << "\033[1;33mCat Default constructor called\033[0m" << std::endl;
 	this->catBrain = new Brain;
 }
 
 Cat::~Cat() {
-	std::cout << "\033[1;33mCat Destructor called" << std::endl;
+	std::cout << "\033[1;33mCat Destructor called\033[0m" << std::endl;
 	delete this->catBrain;
 }
 
 Cat::Cat(const Cat& other) {
 	*this = other;
-	std::cout << "\033[1;33mCat Copy constructor called" << std::endl;
+	std::cout << "\033[1;33mCat Copy constructor called\033[0m" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& other) {
-	std::cout << "\033[1;33mAssignation operator called" << std::endl;
+	std::cout << "\033[1;33mAssignation operator called\033[0m" << std::endl;
 	this->type = other.type;
 	return *this;
 }
 
 void Cat::makeSound() const{
-	std::cout << "\033[1;33m Miau!" << std::endl;
+	std::cout << "\033[1;33m Miau!\033[0m" << std::endl;
 }
 
 void Cat::getIdea() {

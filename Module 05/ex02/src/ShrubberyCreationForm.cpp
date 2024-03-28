@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 21:41:31 by pollo             #+#    #+#             */
-/*   Updated: 2024/02/13 18:29:40 by pollo            ###   ########.fr       */
+/*   Updated: 2024/03/26 21:40:31 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 #include "Bureaucrat.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrub", 145, 137), target("") {
-	std::cout << "\033[32mShrubberyCreationForm Default constructor called" << std::endl;
+	std::cout << "\033[32mShrubberyCreationForm Default constructor called\033[0m" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string target_) : AForm("Shrub", 145, 137), target(target_) {
-	std::cout << "\033[32mShrubberyCreationForm Default constructor called" << std::endl;
+	std::cout << "\033[32mShrubberyCreationForm Default constructor called\033[0m" << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
-	std::cout << "\033[31mShrubberyCreationForm Default destructor called" << std::endl;
+	std::cout << "\033[31mShrubberyCreationForm Default destructor called\033[0m" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) {
-	*this = other;
+	if (this != &other)
+		*this = other;
 	std::cout << "ShrubberyCreationForm Copy constructor called" << std::endl;
 }
 
@@ -48,7 +49,7 @@ void	plantPineTree(const std::string filename) {
 		"  /* * *\\\n"
         " /* * * *\\\n"
 		"/* * * * *\\\n"
-		"    |||	\n";
+		"    | |	\n";
 	std::ofstream outputFile(filename, std::ios::out | std::ios::trunc);
 	if (outputFile.is_open()) {
 		outputFile << treePattern;

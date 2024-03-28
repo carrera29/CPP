@@ -14,19 +14,20 @@
 #include "Bureaucrat.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("Robot", 72, 45), target("target") {
-	std::cout << "\033[32mRobotomyRequestForm Default constructor called" << std::endl;
+	std::cout << "\033[32mRobotomyRequestForm Default constructor called\033[0m" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string target_) : AForm("Robot", 72, 45), target(target_) {
-	std::cout << "\033[32mRobotomyRequestForm Default constructor called" << std::endl;
+	std::cout << "\033[32mRobotomyRequestForm Default constructor called\033[0m" << std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {
-	std::cout << "\033[31mRobotomyRequestForm Default destructor called" << std::endl;
+	std::cout << "\033[31mRobotomyRequestForm Default destructor called\033[0m" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) {
-	*this = other;
+	if (this != &other)
+		*this = other;
 	std::cout << "RobotomyRequestForm Copy constructor called" << std::endl;
 }
 
@@ -41,15 +42,15 @@ const std::string	RobotomyRequestForm::getTarget(void) {
 }
 
 void	RobotomyOperation(const std::string name) {
-	std::cout << "	Rrrrr ... tatatatatata ...\n		ssshhhhhhh tintintin...\n" << 
+	std::cout << "\033[35m	Rrrrr ... tatatatatata ...\n		ssshhhhhhh tintintin...\n" << 
 			"			Ffffffhhs ... jdfdfsdfwfews" << std::endl;
 
 	srand(time(NULL));
 	int randomNumber = rand() % 2;
 	if (randomNumber == 0)
-		std::cout << name << ", Robotomy was successful!" << std::endl;
+		std::cout << name << ", Robotomy was successful!\033[0m" << std::endl;
 	else
-		std::cout << "We'r sorry " << name << ", your Robotomy was a failure" << std::endl;
+		std::cout << "We'r sorry " << name << ", your Robotomy was a failure\033[0m" << std::endl;
 }
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const {

@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 19:37:21 by pollo             #+#    #+#             */
-/*   Updated: 2024/01/28 19:58:01 by pollo            ###   ########.fr       */
+/*   Updated: 2024/03/25 20:41:52 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,6 @@ class Form {
 		};
 		
 		class GradeTooLowException {
-			public:
-				const char* what() const throw();
-		};
-
-		class GradeNotValid {
 			public:
 				const char* what() const throw();
 		};

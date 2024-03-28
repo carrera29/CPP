@@ -14,20 +14,21 @@
 #include "Bureaucrat.hpp"
 
 AForm::AForm() : name(""), isSigned(false), requiredToSign(150), requiredToExecute(150) {
-	std::cout << "\033[32mAForm Default constructor called" << std::endl;
+	std::cout << "\033[31mAForm Default constructor called\033[0m" << std::endl;
 }
 
 AForm::AForm(const std::string Name, const int toSign, const int toExecute) :
 	name(Name), isSigned(false), requiredToSign(toSign), requiredToExecute(toExecute) {
-		std::cout << "\033[32mAForm Default constructor called" << std::endl;
+		std::cout << "\033[31mAForm Default constructor called\033[0m" << std::endl;
 }
 
 AForm::~AForm() {
-	std::cout << "\033[31mAForm Default destructor called" << std::endl;
+	std::cout << "\033[31mAForm Default destructor called\033[0m" << std::endl;
 }
 
 AForm::AForm(const AForm& other) {
-	*this = other;
+	if (this != &other)
+		*this = other;
 	std::cout << "AForm Copy constructor called" << std::endl;
 }
 
@@ -62,19 +63,15 @@ void AForm::beSigned(const Bureaucrat& buro) {
 }
 
 const char* AForm::GradeTooHighException::what() const throw() {
-	return "\033[31mError: Grade is too hight";
+	return "\033[31mGrade is too hight\033[0m";
 }
 
 const char* AForm::GradeTooLowException::what() const throw() {
-	return "\033[31mError: Grade is too low";
-}
-
-const char* AForm::GradeNotValid::what() const throw() {
-	return "\033[31mError: Grade not valid";
+	return "\033[31mGrade is too low\033[0m";
 }
 
 const char* AForm::FormNotsigned::what() const throw() {
-	return "\033[31mError: Form is not signed";
+	return "\033[31mForm is not signed\033[0m";
 }
 
 std::ostream& operator<<(std::ostream& os, AForm& AForm) {
@@ -84,6 +81,6 @@ std::ostream& operator<<(std::ostream& os, AForm& AForm) {
 	else
 		os << " is not signed: ";
     os << "\nNeeds a grade of " << AForm.getRequiredtosign() << " to be signed and " 
-	<< AForm.getRequiredtoexecute() << " to be execued.";
+	<< AForm.getRequiredtoexecute() << " to be execued.\033[0m";
     return os;
 }

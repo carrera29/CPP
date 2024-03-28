@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 19:37:15 by pollo             #+#    #+#             */
-/*   Updated: 2024/02/12 20:06:33 by pollo            ###   ########.fr       */
+/*   Updated: 2024/03/25 20:47:36 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,6 @@ class Bureaucrat {
 		};
 
 		class GradeTooLowException {
-			public:
-				const char* what() const throw();
-		};
-
-		class GradeNotValid {
 			public:
 				const char* what() const throw();
 		};
