@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:01:27 by pollo             #+#    #+#             */
-/*   Updated: 2024/03/26 22:17:41 by pollo            ###   ########.fr       */
+/*   Updated: 2024/03/31 19:09:03 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,33 +19,32 @@
 int main() {
     
     try {
-        Bureaucrat  bureaucrat1("Toto", 145);
-        Bureaucrat  bureaucrat2("Bob", 72);
-        Bureaucrat  bureaucrat3("Mr. P", 25);
-        Bureaucrat  bureaucrat4("Gerentisimo", 1);
-
-        ShrubberyCreationForm doc1("Home");
+        Bureaucrat  bureaucrat1("Gerentisimo", 1);
+        Bureaucrat  bureaucrat2("Mr. P", 25);
+        Bureaucrat  bureaucrat3("Toto", 137);
+        
+        PresidentialPardonForm doc1("Anmistia");
         RobotomyRequestForm doc2("Meta");
-        PresidentialPardonForm doc3("Anmistia");
+        ShrubberyCreationForm doc3("Home");
 
-        bureaucrat1.signForm(doc3);
+        bureaucrat1.signForm(doc1);
         bureaucrat2.signForm(doc2);
-        bureaucrat4.signForm(doc3);
+        bureaucrat3.signForm(doc3);
 
-        // bureaucrat2.executeForm(doc1);
-        // bureaucrat3.executeForm(doc2);
-        // bureaucrat4.executeForm(doc3);
+        bureaucrat1.executeForm(doc1);
+        bureaucrat2.executeForm(doc2);
+        bureaucrat3.executeForm(doc3);
 
     } catch (const Bureaucrat::GradeTooHightException& e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << "\033[1mError: " << e.what() << "\033[0m" << std::endl;
     } catch (const Bureaucrat::GradeTooLowException& e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << "\033[1mError: " << e.what() << "\033[0m" << std::endl;
     } catch (const AForm::GradeTooHighException& e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << "\033[1mError: " << e.what() << "\033[0m" << std::endl;
     } catch (const AForm::GradeTooLowException& e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << "\033[1mError: " << e.what() << "\033[0m" << std::endl;
     } catch (const AForm::FormNotsigned& e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << "\033[1mError: " << e.what() << "\033[0m" << std::endl;
     }
 
     return 0;

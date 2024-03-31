@@ -115,7 +115,7 @@ def generar_clase(nombre_archivo, secciones):
 if __name__ == "__main__":
     # Argumentos de línea de comandos
     if len(sys.argv) < 3:
-        print("Uso: python script_generacion_cpp.py nombre_archivo seccion1 seccion2 ...")
+        print("ejecute el siguiente comando: python createClass.py nombre_archivo seccion1 seccion2 ...")
         sys.exit(1)
 
     nombre_archivo = sys.argv[1]
