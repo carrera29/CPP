@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 19:00:36 by pollo             #+#    #+#             */
-/*   Updated: 2024/04/13 13:43:11 by pollo            ###   ########.fr       */
+/*   Updated: 2024/05/01 14:19:35 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <sstream>
+# include <iomanip>
 
 class ScalarConverter {
 
