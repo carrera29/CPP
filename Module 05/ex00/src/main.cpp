@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/18 23:01:27 by pollo             #+#    #+#             */
-/*   Updated: 2024/03/28 11:51:18 by pollo            ###   ########.fr       */
+/*   Created: 2024/05/16 20:54:15 by clcarrer          #+#    #+#             */
+/*   Updated: 2024/05/16 20:57:00 by clcarrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,23 @@ int main() {
         Bureaucrat bureaucrat2(bureaucrat1);
         Bureaucrat bureaucrat3("Bonnie", 45);
 
-        std::cout << bureaucrat1 << std::endl;
-        std::cout << bureaucrat2 << std::endl;
-        std::cout << bureaucrat3 << std::endl;
+        std::cout << "\033[1m" << bureaucrat1 << "\033[0m" << std::endl;
+        std::cout << "\033[1m" << bureaucrat2 << "\033[0m" << std::endl;
+        std::cout << "\033[1m" << bureaucrat3 << "\033[0m" << std::endl;
 
         bureaucrat1.incrementGrade(149);
-        bureaucrat3 = bureaucrat1;
-        std::cout << bureaucrat1 << std::endl;
-        std::cout << bureaucrat2 << std::endl;
-        std::cout << bureaucrat3 << std::endl;
-        
-    } catch (const Bureaucrat::GradeTooHightException& e) {
-        std::cerr << "\033[1mError: " << e.what() << "\033[0m" << std::endl;
+        std::cout << "\033[1m" << bureaucrat1 << "\033[0m" << std::endl;
+
+        bureaucrat3.decrementGrade(5);
+        std::cout << "\033[1m" << bureaucrat3 << "\033[0m" << std::endl;
+
+        bureaucrat2 = bureaucrat3;
+        std::cout << "\033[1m" << bureaucrat2 << "\033[0m" << std::endl;
+
     } catch (const Bureaucrat::GradeTooLowException& e) {
         std::cerr << "\033[1mError: " << e.what() << "\033[0m" << std::endl;
+    } catch (const Bureaucrat::GradeTooHightException& e) {
+        std::cerr << "\033[1mError: " << e.what() << "\033[0m" << std::endl;
     }
-
     return 0;
 }

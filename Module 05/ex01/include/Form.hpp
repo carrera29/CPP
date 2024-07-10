@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 19:37:21 by pollo             #+#    #+#             */
-/*   Updated: 2024/03/25 20:41:52 by pollo            ###   ########.fr       */
+/*   Updated: 2024/06/07 09:52:18 by clcarrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ class Form {
 				const char* what() const throw();
 		};
 
-		friend std::ostream& operator<<(std::ostream& os, Form& form);
-
 };
+
+std::ostream& operator<<(std::ostream& os, const Form& form);

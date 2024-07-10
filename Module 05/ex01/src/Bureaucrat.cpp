@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:02:22 by pollo             #+#    #+#             */
-/*   Updated: 2024/03/28 11:55:12 by pollo            ###   ########.fr       */
+/*   Updated: 2024/06/07 09:52:07 by clcarrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void Bureaucrat::signForm(Form& form) const {
 	}
 }
 
-std::ostream& operator<<(std::ostream& os, Bureaucrat& bureaucrat) {
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
     os << "\033[34m" << bureaucrat.getName() << ", bureaucrat grade is " << bureaucrat.getGrade() << "\033[0m";
     return os;
 }

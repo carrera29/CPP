@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:01:27 by pollo             #+#    #+#             */
-/*   Updated: 2024/03/31 19:09:03 by pollo            ###   ########.fr       */
+/*   Updated: 2024/05/17 00:41:09 by clcarrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ int main() {
     } catch (const AForm::GradeTooHighException& e) {
         std::cerr << "\033[1mError: " << e.what() << "\033[0m" << std::endl;
     } catch (const AForm::GradeTooLowException& e) {
-        std::cerr << "\033[1mError: " << e.what() << "\033[0m" << std::endl;
-    } catch (const AForm::FormNotsigned& e) {
         std::cerr << "\033[1mError: " << e.what() << "\033[0m" << std::endl;
     }
 

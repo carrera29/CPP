@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 19:37:15 by pollo             #+#    #+#             */
-/*   Updated: 2024/03/26 19:44:40 by pollo            ###   ########.fr       */
+/*   Updated: 2024/06/07 10:13:40 by clcarrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ class Bureaucrat {
 				const char* what() const throw();
 		};
 
-	friend std::ostream& operator<<(std::ostream& os, Bureaucrat& bureaucrat);
-
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);

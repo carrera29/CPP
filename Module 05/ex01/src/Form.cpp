@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 20:56:37 by pollo             #+#    #+#             */
-/*   Updated: 2024/03/28 10:55:13 by pollo            ###   ########.fr       */
+/*   Updated: 2024/06/07 09:52:11 by clcarrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ const char* Form::GradeTooLowException::what() const throw() {
 	return "Grade is too low";
 }
 
-std::ostream& operator<<(std::ostream& os, Form& form) {
+std::ostream& operator<<(std::ostream& os, const Form& form) {
 	os << "\033[32m" << form.getName();
 	if (form.getSigned() == true)
 		os << " is signed: ";

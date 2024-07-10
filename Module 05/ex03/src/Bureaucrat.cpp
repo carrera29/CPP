@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:02:22 by pollo             #+#    #+#             */
-/*   Updated: 2024/03/31 19:01:14 by pollo            ###   ########.fr       */
+/*   Updated: 2024/06/07 10:18:02 by clcarrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void Bureaucrat::executeForm(AForm& form) const {
 	}
 }
 
-std::ostream& operator<<(std::ostream& os, Bureaucrat& bureaucrat) {
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
     os << "\033[34m" << bureaucrat.getName() << ", bureaucrat grade is " << bureaucrat.getGrade() << "\033[0m";
     return os;
 }

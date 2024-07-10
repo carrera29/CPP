@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 19:37:15 by pollo             #+#    #+#             */
-/*   Updated: 2024/03/25 20:47:36 by pollo            ###   ########.fr       */
+/*   Updated: 2024/06/07 09:51:59 by clcarrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ class Bureaucrat {
 
 		void signForm(Form& form) const;
 
-	friend std::ostream& operator<<(std::ostream& os, Bureaucrat& bureaucrat);
-
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);

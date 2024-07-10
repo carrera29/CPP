@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:01:27 by pollo             #+#    #+#             */
-/*   Updated: 2024/03/28 11:53:35 by pollo            ###   ########.fr       */
+/*   Updated: 2024/05/16 21:20:01 by clcarrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ int main() {
     
     try {
         Bureaucrat  bureaucrat1("Toto", 150);
-        Bureaucrat  bureaucrat2("Bonnie", 1);
-        
         std::cout << bureaucrat1 << std::endl;
+
+        Bureaucrat  bureaucrat2("Bonnie", 1);
         std::cout << bureaucrat2 << std::endl;
 
         Form    reglamento("Reglamento", 150, 145);
-        Form    ley("Constitucion", 50, 1);
-
         std::cout << reglamento << std::endl;
+        
+        Form    ley("Constitucion", 50, 1);
         std::cout << ley << std::endl;
         
         bureaucrat1.signForm(ley);

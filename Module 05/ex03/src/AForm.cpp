@@ -74,7 +74,7 @@ const char* AForm::FormNotsigned::what() const throw() {
 	return "Form is not signed";
 }
 
-std::ostream& operator<<(std::ostream& os, AForm& AForm) {
+std::ostream& operator<<(std::ostream& os, const AForm& AForm) {
 	os << "\033[32m" << AForm.getName();
 	if (AForm.getSigned() == true)
 		os << " is signed: ";

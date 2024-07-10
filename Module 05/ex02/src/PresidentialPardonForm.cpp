@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 12:47:40 by pollo             #+#    #+#             */
-/*   Updated: 2024/03/28 12:48:32 by pollo            ###   ########.fr       */
+/*   Updated: 2024/05/17 00:46:44 by clcarrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ PresidentialPardonForm::~PresidentialPardonForm() {
 	std::cout << "\033[33mPresidentialPardonForm Default destructor called\033[0m" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) {
-	if (this != &other)
-		*this = other;
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : AForm("Presi", 25, 5), target(other.target) {
 	std::cout << "\033[33mPresidentialPardonForm Copy constructor called\033[0m" << std::endl;
 }
 

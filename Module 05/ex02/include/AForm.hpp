@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 19:37:21 by pollo             #+#    #+#             */
-/*   Updated: 2024/03/26 19:44:52 by pollo            ###   ########.fr       */
+/*   Updated: 2024/06/07 10:13:14 by clcarrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ class AForm {
 				virtual const char* what() const throw();
 		};
 
-		friend std::ostream& operator<<(std::ostream& os, AForm& form);
-
 };
+
+std::ostream& operator<<(std::ostream& os, const AForm& form);

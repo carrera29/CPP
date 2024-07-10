@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 21:41:31 by pollo             #+#    #+#             */
-/*   Updated: 2024/03/28 12:48:09 by pollo            ###   ########.fr       */
+/*   Updated: 2024/05/17 00:43:34 by clcarrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 	std::cout << "\033[36mShrubberyCreationForm Default destructor called\033[0m" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) {
-	if (this != &other)
-		*this = other;
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm("Shrub", 145, 137), target(other.target) {
 	std::cout << "\033[36mShrubberyCreationForm Copy constructor called\033[0m" << std::endl;
 }
 
@@ -50,7 +48,7 @@ void	plantPineTree(const std::string filename) {
         " /* * * *\\\n"
 		"/* * * * *\\\n"
 		"    | |	\n";
-	std::ofstream outputFile(filename, std::ios::out | std::ios::trunc);
+	std::ofstream outputFile(filename.c_str(), std::ios::out | std::ios::trunc);
 	if (outputFile.is_open()) {
 		outputFile << treePattern;
 		outputFile.close();

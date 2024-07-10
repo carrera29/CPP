@@ -25,10 +25,8 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 	std::cout << "\033[35mRobotomyRequestForm Default destructor called\033[0m" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) {
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) : AForm("Robot", 72, 45), target(other.target) {
 	std::cout << "\033[35mRobotomyRequestForm Copy constructor called\033[0m" << std::endl;
-	if (this != &other)
-		*this = other;
 }
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other) {

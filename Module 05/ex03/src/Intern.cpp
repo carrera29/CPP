@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:00:44 by pollo             #+#    #+#             */
-/*   Updated: 2024/03/31 18:43:15 by pollo            ###   ########.fr       */
+/*   Updated: 2024/05/17 00:49:27 by clcarrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ Intern::~Intern() {
 }
 
 Intern::Intern(const Intern& other) {
-	*this = other;
 	std::cout << "\033[36mIntern Copy constructor called" << std::endl;
+	if (this != &other)
+		*this = other;
 }
 
 Intern& Intern::operator=(const Intern& other) {
@@ -57,5 +58,5 @@ AForm* Intern::makeForm(const std::string formName, const std::string formTarget
 		}
 	}
 	std::cout << "\033[1;31mThe Inter couldn't find the Form named: " << formName << "\033[0m" << std::endl;
-	return nullptr;
+	return NULL;
 }
