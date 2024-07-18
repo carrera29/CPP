@@ -3,34 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 16:09:40 by clcarrer          #+#    #+#             */
-/*   Updated: 2024/05/27 18:20:17 by clcarrer         ###   ########.fr       */
+/*   Updated: 2024/07/17 10:43:55 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_HPP
-# define ARRAY_HPP
+#define ARRAY_HPP
 
-template<typename T, unsigned int N>
+#include <iostream>
+#include <stdexcept>
+
+template <typename T>
 
 class Array {
 
     private:
 
-        T arr[N];
-
+        T*				data;
+        unsigned int    n;
+        
+    public:
+    
         Array();
         Array(unsigned int n);
         Array(const Array &copy);
-        Array& operator=(const Array &copy);
+		~Array();
 
-    public:
+        Array& operator=(const Array& copy);
+		T& operator[](const unsigned int i);
 
-        ~Array();
+		unsigned int size() const;
 
+};
 
-}
+#include "Array.tpp"
 
 #endif

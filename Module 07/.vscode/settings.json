@@ -45,6 +45,24 @@
         "numbers": "cpp",
         "ranges": "cpp",
         "stdexcept": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "__bit_reference": "cpp",
+        "__config": "cpp",
+        "__locale": "cpp",
+        "__threading_support": "cpp",
+        "__verbose_abort": "cpp",
+        "bitset": "cpp",
+        "complex": "cpp",
+        "cstring": "cpp",
+        "ctime": "cpp",
+        "execution": "cpp",
+        "ios": "cpp",
+        "locale": "cpp",
+        "mutex": "cpp",
+        "ratio": "cpp",
+        "sstream": "cpp",
+        "variant": "cpp",
+        "*.tpp": "c",
+        "iomanip": "cpp"
     }
 }

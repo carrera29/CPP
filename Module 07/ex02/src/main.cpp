@@ -3,63 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 15:52:52 by clcarrer          #+#    #+#             */
-/*   Updated: 2024/05/27 15:52:55 by clcarrer         ###   ########.fr       */
+/*   Updated: 2024/07/18 17:50:26 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Array.hpp"
 #include <iostream>
-#include <Array.hpp>
 
 #define MAX_VAL 750
+
 int main(int, char**)
 {
-    Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
-    srand(time(NULL));
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        const int value = rand();
-        numbers[i] = value;
-        mirror[i] = value;
-    }
-    //SCOPE
-    {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
-    }
+    Array<int> defaultArray;
+    std::cout << "defaultArray size: " << defaultArray.size() << std::endl;
 
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        if (mirror[i] != numbers[i])
-        {
-            std::cerr << "didn't save the same value!!" << std::endl;
-            return 1;
+    Array<int> arrayWithSize(5);
+    std::cout << "arrayWithSize size: " << arrayWithSize.size() << std::endl;
+
+    for (unsigned int i = 0; i < arrayWithSize.size(); ++i)
+        arrayWithSize[i] = i * 10;
+
+    for (unsigned int i = 0; i < arrayWithSize.size(); ++i)
+        std::cout << "arrayWithSize[" << i << "] = " << arrayWithSize[i] << std::endl;
+
+    Array<int> copiedArray(arrayWithSize);
+    std::cout << "copiedArray size: " << copiedArray.size() << std::endl;
+
+    for (unsigned int i = 0; i < copiedArray.size(); ++i)
+        std::cout << "copiedArray[" << i << "] = " << copiedArray[i] << std::endl;
+
+    Array<int> assignedArray;
+    assignedArray = copiedArray;
+    std::cout << "assignedArray size: " << assignedArray.size() << std::endl;
+
+    for (unsigned int i = 0; i < assignedArray.size() ; ++i) {
+        try {
+            std::cout << "assignedArray[" << i << "] = " << assignedArray[i] << std::endl;
+        } catch (const std::out_of_range& e) {
+           std::cerr << "Error: " << e.what() << std::endl;
         }
     }
-    try
-    {
-        numbers[-2] = 0;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    try
-    {
-        numbers[MAX_VAL] = 0;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        numbers[i] = rand();
-    }
-    delete [] mirror;//
     return 0;
 }

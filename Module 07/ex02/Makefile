@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+         #
+#    By: pollo <pollo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/31 16:51:31 by pollo             #+#    #+#              #
-#    Updated: 2024/05/27 16:40:59 by clcarrer         ###   ########.fr        #
+#    Updated: 2024/07/17 09:00:33 by pollo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	Iter
+NAME	=	Array
 
-SRC		=	main.cpp \
+SRC		=	main.cpp
 
 OBJ       = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 13:07:22 by clcarrer          #+#    #+#             */
-/*   Updated: 2024/05/27 16:01:38 by clcarrer         ###   ########.fr       */
+/*   Updated: 2024/07/16 09:42:07 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void swap(T &a, T &b) {
 }
 
 template<typename T>
-T min(const T &a, const T &b) {
+T min(const T a, const T b) {
     if (a < b)
         return a;
     else
@@ -29,7 +29,7 @@ T min(const T &a, const T &b) {
 }
 
 template<typename T>
-T max(T a, T b) {
+T max(const T a, const T b) {
     if (a > b)
         return a;
     else

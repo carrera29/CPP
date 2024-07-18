@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clcarrer <clcarrer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 16:09:40 by clcarrer          #+#    #+#             */
-/*   Updated: 2024/05/27 17:41:50 by clcarrer         ###   ########.fr       */
+/*   Updated: 2024/07/16 09:57:11 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@ template<typename T>
 void    printer(T x) {
     
     std::cout << x << std::endl;
+}
+
+
+template<typename T>
+
+void    addTen(T x) {
+    
+    std::cout << (x + 10) << std::endl;
 }
 
 
