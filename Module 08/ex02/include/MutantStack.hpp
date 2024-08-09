@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 08:44:31 by pollo             #+#    #+#             */
-/*   Updated: 2024/08/07 10:49:01 by pollo            ###   ########.fr       */
+/*   Updated: 2024/08/09 17:11:02 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,10 @@ class MutantStack {
 
 		T&			top() {
 			return c.back();
+		}
+
+		void		swap(MutantStack& other) {
+			c.swap(other.c);
 		}
 
 		bool		empty() {

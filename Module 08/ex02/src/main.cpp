@@ -6,26 +6,41 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 09:34:35 by pollo             #+#    #+#             */
-/*   Updated: 2024/08/07 10:50:50 by pollo            ###   ########.fr       */
+/*   Updated: 2024/08/09 18:01:35 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
+#include <stack>
 
 int main(void) {
 
-    std::srand(static_cast<unsigned int>(std::time(0)));
-
-    MutantStack<int> ms;
+    MutantStack<int> myStack;
+    myStack.push(4);
+    myStack.push(42);
+    myStack.push(424);
     
-    for (int i = 0; i < 10; ++i)
-        ms.push(random() % 10);
+    if (myStack.empty()) std::cout << "st is empty" << std::endl;
+    else std::cout << "st is not empty" << std::endl;
+    
+    MutantStack<int> myCopy = myStack;
+    myStack.pop();
 
-    for (MutantStack<int>::iterator i = ms.begin(); i != ms.end(); ++i)
-        std::cout << "Value: " << *i << std::endl;
+    std::cout << "Top element in myStack is " << myStack.top() << " and the size is " << myStack.size() << std::endl;
+    std::cout << "Top element in myCopy is " << myCopy.top() << " and the size is " << myCopy.size() << std::endl;
+    
+    myStack.swap(myCopy);
 
-    for (size_t i = ms.size(); i > 0; --i)
-        std::cout << "Index " << i << ": value is " << ms[i] << std::endl;
+    std::cout << "Top element in myStack is " << myStack.top() << " and the size is " << myStack.size() << std::endl;
+    std::cout << "Top element in myCopy is " << myCopy.top() << " and the size is " << myCopy.size() << std::endl;
+    
+    myStack.push(7);
+    myStack.push(77);
+    myStack.push(777);
 
+    MutantStack<int>::iterator End = myStack.end();
+    for (MutantStack<int>::iterator it = myStack.begin(); it != End; ++it)
+        std::cout << *it << std::endl;
+    
     return 0;
 }
