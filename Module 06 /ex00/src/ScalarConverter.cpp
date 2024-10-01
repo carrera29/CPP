@@ -89,6 +89,39 @@ void	notValid() {
 	std::cout << "float: impossible" << std::endl;
 	std::cout << "double: impossible" << std::endl;
 }
+ 
+int fromStringToInt(const std::string& literal) {
+    char* end;
+    long value = std::strtol(literal.c_str(), &end, 10);
+
+    if (*end != '\0')
+        throw std::invalid_argument("Invalid integer value");
+    if (value >= std::numeric_limits<int>::max() || value <= std::numeric_limits<int>::min())
+        throw std::out_of_range("Integer value out of range");
+    return static_cast<int>(value);
+}
+
+float fromStringToFloat(const std::string& literal) {
+    std::string temp = literal;
+
+    if (!literal.empty() && literal[literal.size() - 1] == 'f')
+        temp = literal.substr(0, literal.size() - 1);
+
+    char* end;
+    float value = strtof(temp.c_str(), &end);
+    if (*end != '\0')
+        throw std::invalid_argument("Invalid float value");
+    return value;
+}
+
+double fromStringToDouble(const std::string& literal) {
+    char* end;
+    double value = strtod(literal.c_str(), &end);
+
+    if (*end != '\0')
+        throw std::invalid_argument("Invalid double value");
+    return value;
+}
 
 void transcripcionType(const std::string& literal, const std::string& type) {
 
@@ -96,7 +129,7 @@ void transcripcionType(const std::string& literal, const std::string& type) {
 		fromChar(literal[0]);
 	else if (type == "int") {
 		try {
-			fromInt(std::stoi(literal));
+			fromInt(fromStringToInt(literal));
 		} catch (const std::invalid_argument& e) {
 			std::cout << "Error: " << e.what() << std::endl;
 		} catch (const std::out_of_range& e) {
@@ -105,7 +138,7 @@ void transcripcionType(const std::string& literal, const std::string& type) {
 	} 
 	else if (type == "float") {
 		try {
-			fromFloat(std::stof(literal));
+			fromFloat(fromStringToFloat(literal));
 		} catch (const std::invalid_argument& e) {
 			std::cout << "Error: " << e.what() << std::endl;
 		} catch (const std::out_of_range& e) {
@@ -114,7 +147,7 @@ void transcripcionType(const std::string& literal, const std::string& type) {
 	} 
 	else if (type == "double") {
 		try {
-			fromDouble(std::stod(literal));
+			fromDouble(fromStringToDouble(literal));
 		} catch (const std::invalid_argument& e) {
 			std::cout << "Error: " << e.what() << std::endl;
 		} catch (const std::out_of_range& e) {
@@ -186,7 +219,5 @@ void ScalarConverter::convert(const std::string& literal) {
 	std::string	type[6] = { "char", "int", "float", "double", "not valid" };
 	
 	int nType = defineType(literal);
-	// std::cout << literal << " type is " << type[nType] << std::endl;
 	transcripcionType(literal, type[nType]);
-
 }

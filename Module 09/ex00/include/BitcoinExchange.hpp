@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/07 19:00:36 by pollo             #+#    #+#             */
-/*   Updated: 2024/10/01 22:12:58 by pollo            ###   ########.fr       */
+/*   Created: 2024/08/13 10:33:53 by pollo             #+#    #+#             */
+/*   Updated: 2024/09/13 17:47:11 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-#define SCALARCONVERTER_HPP
+#ifndef BITCOINEXCHANGE_HPP
+#define BITCOINEXCHANGE_HPP
 
 #include <iostream>
+#include <fstream>
 #include <sstream>
-#include <iomanip>
-#include <limits>
-#include <string>
-#include <cmath>
-#include <cstdlib>
+#include <map>
 
-class ScalarConverter {
+class BitcoinExchange {
 
 	private:
 
-		ScalarConverter();
-		ScalarConverter(const ScalarConverter& other);
-		ScalarConverter& operator=(const ScalarConverter& other);
-		~ScalarConverter();
+		std::map<std::string, float> dataPrice;
 
 	public:
+	
+		BitcoinExchange(const std::string& filePath);
+		~BitcoinExchange();
 
-		static void convert(const std::string& literal);
+		// void	theRightPrice(const std::string& FilePath);
 
 };
 
