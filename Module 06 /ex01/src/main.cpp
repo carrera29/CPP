@@ -6,11 +6,10 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 18:47:31 by pollo             #+#    #+#             */
-/*   Updated: 2024/05/14 08:21:12 by pollo            ###   ########.fr       */
+/*   Updated: 2024/10/02 12:32:18 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
 #include "Data.hpp"
 #include "Serializer.hpp"
 
@@ -18,8 +17,8 @@ int main(void) {
     
     Data originalData;
     originalData.intValue = 42;
-    originalData.floatValue = 3.14f;
-    originalData.doubleValue = 2.718281828;
+    originalData.floatValue = 24.42f;
+    originalData.doubleValue = 42.24;
     originalData.charValue = 'A';
 
     uintptr_t serialized = Serializer::serialize(&originalData);

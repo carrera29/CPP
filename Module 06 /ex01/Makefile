@@ -6,14 +6,13 @@
 #    By: pollo <pollo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/31 16:51:31 by pollo             #+#    #+#              #
-#    Updated: 2024/05/14 08:31:37 by pollo            ###   ########.fr        #
+#    Updated: 2024/10/02 09:07:58 by pollo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	convert
 
 SRC		=	main.cpp \
-			ScalarConverter.cpp \
 			Serializer.cpp \
 			Data.cpp
 

@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 22:16:13 by pollo             #+#    #+#             */
-/*   Updated: 2024/05/14 08:29:04 by pollo            ###   ########.fr       */
+/*   Updated: 2024/10/02 10:20:02 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define SERIALIZER_HPP
 
 # include <iostream>
-# include <cstdint> 
+# include <stdint.h>
 # include "Data.hpp"
 
 class Serializer {
@@ -29,8 +29,8 @@ class Serializer {
 		Serializer(const Serializer& other);
 		Serializer& operator=(const Serializer& other);
 
-		static uintptr_t serialize(Data* ptr);
-		static Data* deserialize(uintptr_t raw);
+		static uintptr_t	serialize(Data* ptr);
+		static Data*		deserialize(uintptr_t raw);
 
 };
 
