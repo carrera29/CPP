@@ -103,7 +103,6 @@ int fromStringToInt(const std::string& literal) {
 
 float fromStringToFloat(const std::string& literal) {
     std::string temp = literal;
-
     if (!literal.empty() && literal[literal.size() - 1] == 'f')
         temp = literal.substr(0, literal.size() - 1);
 
