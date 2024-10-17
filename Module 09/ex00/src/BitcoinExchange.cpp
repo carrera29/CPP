@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 10:33:40 by pollo             #+#    #+#             */
-/*   Updated: 2024/10/15 19:35:43 by pollo            ###   ########.fr       */
+/*   Updated: 2024/10/17 06:54:28 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,14 +90,15 @@ BitcoinExchange::BitcoinExchange(const std::string& filePath) {
 		std::string date = line.substr(0, 10);
 		if (itIsValidDate(date) == false)
 			std::cout << "Error: bad input => " << date << std::endl;
-		if (trim(line.substr(11, 13)) != "|")
-			std::cout << "Error: Wrong format" << std::endl;
-		// else if (itIsValidAmount(amount)) {
-		// 	if (dataPrice.find(date) != dataPrice.end())
-		// 		std::cout << date << " => " << amount << " = " << dataPrice[date] * amount << std::endl;
-		// }
 		else {
 			std::cout << "OK -> " << date << std::endl;
+			if (trim(line.substr(11, 13)) != "|")
+				std::cout << "Error: Wrong format" << std::endl;
+			else if (itIsValidAmount(amount) == true)
+				
+		// 		if (dataPrice.find(date) != dataPrice.end())
+		// 		std::cout << date << " => " << amount << " = " << dataPrice[date] * amount << std::endl;
+		// }
 			ss >> amount;
 		}
 		ss.clear();
