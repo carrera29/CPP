@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 10:40:14 by pollo             #+#    #+#             */
-/*   Updated: 2024/08/06 22:12:17 by pollo            ###   ########.fr       */
+/*   Updated: 2024/10/04 18:15:32 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 #include <vector>
 #include <list>
 #include <stdexcept>
+#include <cstdlib>
+#include <ctime>
+#include <algorithm>
 
 class Span {
 

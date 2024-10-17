@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 10:33:53 by pollo             #+#    #+#             */
-/*   Updated: 2024/09/13 17:47:11 by pollo            ###   ########.fr       */
+/*   Updated: 2024/10/10 08:12:54 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define BITCOINEXCHANGE_HPP
 
 #include <iostream>
+#include <string>
+#include <cstdlib>
 #include <fstream>
 #include <sstream>
 #include <map>

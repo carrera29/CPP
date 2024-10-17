@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 10:40:12 by pollo             #+#    #+#             */
-/*   Updated: 2024/08/06 22:27:26 by pollo            ###   ########.fr       */
+/*   Updated: 2024/10/04 18:16:52 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ int main(void) {
     try {
 
         Span sp(15);
-
-        // Usar un std::vector
+        
         std::vector<int> vec;
         vec.push_back(0);
         vec.push_back(2);

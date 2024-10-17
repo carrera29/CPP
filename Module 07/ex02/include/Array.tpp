@@ -6,17 +6,17 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 10:14:01 by pollo             #+#    #+#             */
-/*   Updated: 2024/07/18 17:47:48 by pollo            ###   ########.fr       */
+/*   Updated: 2024/10/04 18:02:12 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 template <typename T>
-Array<T>::Array() : data(nullptr), n(0) {
+Array<T>::Array() : data(NULL), n(0) {
     std::cout << "\033[32mArray Default construction called\033[0m" << std::endl;
 }
 
 template <typename T>
-Array<T>::Array(unsigned int size) : data(nullptr), n(size) {
+Array<T>::Array(unsigned int size) : data(NULL), n(size) {
     std::cout << "\033[32mArray of "<< n << " Default construction called\033[0m" << std::endl;
     try {
         data = new T[size]();
@@ -39,7 +39,7 @@ unsigned int Array<T>::size() const {
 }
 
 template <typename T>
-Array<T>::Array(const Array &copy) : data(nullptr), n(copy.n) {
+Array<T>::Array(const Array &copy) : data(NULL), n(copy.n) {
     std::cout << "\033[32mArray Copy construction called\033[0m" << std::endl;
     try {
         data = new T[copy.n]();
