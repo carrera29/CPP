@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 10:33:53 by pollo             #+#    #+#             */
-/*   Updated: 2024/10/10 08:12:54 by pollo            ###   ########.fr       */
+/*   Updated: 2024/10/19 20:38:04 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class BitcoinExchange {
 		BitcoinExchange(const std::string& filePath);
 		~BitcoinExchange();
 
+		void	extDataBase(void);
 		// void	theRightPrice(const std::string& FilePath);
 
 };

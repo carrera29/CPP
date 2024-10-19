@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 10:33:40 by pollo             #+#    #+#             */
-/*   Updated: 2024/10/17 06:54:28 by pollo            ###   ########.fr       */
+/*   Updated: 2024/10/19 22:42:51 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ bool	itIsValidDate(const std::string& date) {
 	return true;
 }
 
-bool	itIsValidAmount(const int amount) {
+bool	itIsValidAmount(const double amount) {
 
 	if (amount < 0) {
 		std::cout << "Error: not a positive number." << std::endl;
@@ -58,58 +58,65 @@ std::string trim(const std::string& str) {
 	return str.substr(start, end - start);
 }
 
+void	BitcoinExchange::extDataBase(void) {
+	
+	std::ifstream	dataBase("data.csv");
+	if (!dataBase.is_open())
+		throw std::runtime_error("Error: The file couldn't be open");
+	
+	std::string			line;
+	while (std::getline(dataBase, line)) {
+		
+		std::stringstream	ss(line);
+		std::string			historicalDate;
+		float				historicalPrice;
+		
+		if (std::getline(ss, historicalDate, ',')) {
+			ss >> historicalPrice;
+			dataPrice[historicalDate] = historicalPrice;
+		} else
+			throw std::runtime_error("Error: Wrong data format");
+		ss.clear();
+	}
+	dataBase.close();
+}
 
 BitcoinExchange::BitcoinExchange(const std::string& filePath) {
 	
-	// std::ifstream		dataBase("../data.csv");
-	std::ifstream		file(filePath);
-
+	extDataBase();
+	std::ifstream	file(filePath.c_str());
 	if (!file.is_open())
-		throw std::runtime_error("Error: The file couldn't be open");
+		throw std::runtime_error("Error: The file couldn't be open.");
 
 	std::string	line;
-	// while (std::getline(dataBase, line)) {
-
-	// 	std::stringstream	ss(line);
-	// 	std::string			historicalDate;
-	// 	float				historicalPrice;
-
-	// 	if (std::getline(ss, historicalDate, ',') && (ss >> historicalPrice))
-	// 		dataPrice[historicalDate] = historicalPrice;	
-	// 	else 
-	// 		throw std::runtime_error("Error: Wrong data format");
-	// 	ss.clear();
-	// }
-	// dataBase.close();
-
 	while (std::getline(file, line)) {
-		
-		std::stringstream	ss(line);
-		float				amount;
-		
+
 		std::string date = line.substr(0, 10);
 		if (itIsValidDate(date) == false)
 			std::cout << "Error: bad input => " << date << std::endl;
 		else {
-			std::cout << "OK -> " << date << std::endl;
-			if (trim(line.substr(11, 13)) != "|")
-				std::cout << "Error: Wrong format" << std::endl;
-			else if (itIsValidAmount(amount) == true)
-				
-		// 		if (dataPrice.find(date) != dataPrice.end())
-		// 		std::cout << date << " => " << amount << " = " << dataPrice[date] * amount << std::endl;
-		// }
-			ss >> amount;
+			if (trim(line.substr(10, 3)) != "|") {
+				std::cout << "Error: Wrong format." << std::endl;
+				continue;
+			}
+			char* end;
+			float amount = std::strtof(trim(line.substr(13)).c_str(), &end);
+			if (*end != '\0') {
+				std::cout << "Error: invalid number format." << std::endl;
+				continue;
+			} else if (itIsValidAmount(amount) == true) {
+				std::map<std::string, float>::iterator it = dataPrice.lower_bound(date);
+				if (it != dataPrice.begin() && it->first != date)
+					--it;
+				else if (it->first != date) {
+					std::cout << "No earlier date found for " << date << std::endl;
+					continue;
+				}
+				std::cout << date << " => " << amount << " = " << amount * it->second << std::endl;	
+			}
 		}
-		ss.clear();
-	}
+	}	
 	file.close();
 }
 
 BitcoinExchange::~BitcoinExchange() {}
-
-// void	BitcoinExchange::theRightPrice(const std::ifstream& file) {
-	
-	
-	
-// }

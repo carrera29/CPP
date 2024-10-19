@@ -6,7 +6,7 @@
 #    By: pollo <pollo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/31 16:51:31 by pollo             #+#    #+#              #
-#    Updated: 2024/08/16 20:15:23 by pollo            ###   ########.fr        #
+#    Updated: 2024/10/19 12:59:18 by pollo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRC_DIR	= ./src
 OBJ_DIR	= ./obj
 INC_DIR = ./include
 
-CC		=	g++
+CC		=	c++
 CFLAGS	=	-std=c++98 -Wall -Wextra -Werror -I $(INC_DIR)
 
 all: $(NAME)
