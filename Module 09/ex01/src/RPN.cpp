@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:41:02 by pollo             #+#    #+#             */
-/*   Updated: 2024/10/27 18:20:25 by pollo            ###   ########.fr       */
+/*   Updated: 2024/10/30 19:20:38 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,27 @@ int ValidateElement(const std::string element) {
 	return (0);
 }
 
-RPN::RPN(const std::string input) {
+int	operations(const int first, const int second, const std::string element) {
 
+	int result = 0;
+
+	if (element == "+")
+		result = second + first;
+	else if (element == "-")
+		result = second - first;
+	else if (element == "*")
+		result = second * first;
+	else if (element == "/") {
+		if (first == 0)
+			throw std::runtime_error("Error: division by zero");
+		result = second / first;
+	}
+	return result;
+}
+
+void	RPN(const std::string input) {
+
+	std::stack<int>		operands;
 	std::stringstream	ss(input);
 	std::string			element;
 
@@ -48,22 +67,19 @@ RPN::RPN(const std::string input) {
 			return;
 		}
 		else if (type == 1) {
+			if (operands.size() < 2) {
+                std::cout << "Error: insufficient operands for operation" << std::endl;
+                return;
+            }
 			int first = operands.top(); operands.pop();
 			int second = operands.top(); operands.pop();
-
-			if (element == "+")
-				operands.push(second + first);
-			else if (element == "-")
-				operands.push(second - first);
-			else if (element == "*")
-				operands.push(second * first);
-			else if (element == "/")
-				operands.push(second / first);
+			operands.push(operations(first, second, element));
 		}
 		else
 			operands.push(fromStringToInt(element));
 	}
-	std::cout << operands.top() << std::endl;
+	if (operands.size() > 0)
+        std::cout << operands.top() << std::endl;
+    else 
+        std::cout << "Error" << std::endl;
 }
-
-RPN::~RPN() {}

@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 18:29:57 by pollo             #+#    #+#             */
-/*   Updated: 2024/10/28 18:51:33 by pollo            ###   ########.fr       */
+/*   Updated: 2024/10/30 18:38:41 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,12 @@
 #include <vector>
 #include <list>
 #include <string>
+#include <ctime>
+#include <cstdlib>
+#include <limits>
 
-class PmergeMe {
-
-	public:
-	
-		PmergeMe();
-		~PmergeMe();
-		PmergeMe(const PmergeMe& other);
-		PmergeMe& operator=(const PmergeMe& other);
-
-
-};
+	std::vector<int>	fordJohnsonWithVector(std::vector<int> input);
+	std::list<int>		fordJohnsonWithList(std::list<int> input);
+	void				printer(std::vector<int> inputV, std::list<int> inputL, int numbers);
 
 #endif

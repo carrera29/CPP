@@ -6,7 +6,7 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 17:40:49 by pollo             #+#    #+#             */
-/*   Updated: 2024/10/27 17:40:50 by pollo            ###   ########.fr       */
+/*   Updated: 2024/10/30 17:34:27 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,9 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <cstdlib>
+#include <limits>
 
-class RPN {
-
-	private:
-
-		std::stack<int> operands;
-
-	public:
-	
-		RPN(const std::string input);
-		~RPN();
-		RPN(const RPN& other);
-		RPN& operator=(const RPN& other);
-
-		int operation();
-
-};
+	void	RPN(const std::string input);
 
 #endif

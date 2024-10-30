@@ -54,6 +54,7 @@
         "algorithm": "cpp",
         "deque": "cpp",
         "stack": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "charconv": "cpp"
     }
 }

@@ -6,12 +6,11 @@
 /*   By: pollo <pollo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 10:33:40 by pollo             #+#    #+#             */
-/*   Updated: 2024/10/19 22:42:51 by pollo            ###   ########.fr       */
+/*   Updated: 2024/10/30 16:39:08 by pollo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-#include <string>
 
 bool	itIsValidDate(const std::string& date) {
 
@@ -58,7 +57,7 @@ std::string trim(const std::string& str) {
 	return str.substr(start, end - start);
 }
 
-void	BitcoinExchange::extDataBase(void) {
+void	extDataBase(std::map<std::string, float> &dataPrice) {
 	
 	std::ifstream	dataBase("data.csv");
 	if (!dataBase.is_open())
@@ -79,16 +78,20 @@ void	BitcoinExchange::extDataBase(void) {
 		ss.clear();
 	}
 	dataBase.close();
+	
 }
 
-BitcoinExchange::BitcoinExchange(const std::string& filePath) {
+void	BitcoinExchange(const std::string& filePath) {
 	
-	extDataBase();
+	std::map<std::string, float> dataPrice;
+	extDataBase(dataPrice);
+	
 	std::ifstream	file(filePath.c_str());
 	if (!file.is_open())
 		throw std::runtime_error("Error: The file couldn't be open.");
 
 	std::string	line;
+	std::getline(file, line);
 	while (std::getline(file, line)) {
 
 		std::string date = line.substr(0, 10);
@@ -118,5 +121,3 @@ BitcoinExchange::BitcoinExchange(const std::string& filePath) {
 	}	
 	file.close();
 }
-
-BitcoinExchange::~BitcoinExchange() {}

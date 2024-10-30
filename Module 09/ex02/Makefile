@@ -6,13 +6,14 @@
 #    By: pollo <pollo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/31 16:51:31 by pollo             #+#    #+#              #
-#    Updated: 2024/10/28 11:46:04 by pollo            ###   ########.fr        #
+#    Updated: 2024/10/30 10:36:23 by pollo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	PmergeMe
 
-SRC		=	main.cpp
+SRC		=	main.cpp \
+			PmergeMe.cpp
 
 OBJ       = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
